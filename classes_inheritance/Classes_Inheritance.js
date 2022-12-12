@@ -26,3 +26,49 @@ MainBuilder.random  = function(from, to) {
     return Math.floor(Math.random() * (to - from)) + from;
 }
 
+//-----------ES6 Class----------//
+
+class IntBuilder extends MainBuilder {
+    constructor(int) {
+    super(int);
+    this.int = int;
+    }
+
+    plus(...n) {
+        this.int = [...n].reduce(function(a, b) {
+             return a + b;
+            }, this.int);
+        return this;
+    }
+
+    minus(...n) {
+        this.int = [...n].reduce(function(a, b) {
+            return a - b;
+            }, this.int);
+        return this;
+
+    }
+
+    multiply(n){
+        this.int = this.int * n;
+        return this;
+
+    }
+
+    divide(n){
+        this.int = Math.trunc(this.int / n);
+        return this;
+    }
+
+    mod(n){
+        this.int = this.int % n;
+        return this;
+    }
+
+    get() {
+        return this.int;
+    }
+
+}
+
+
