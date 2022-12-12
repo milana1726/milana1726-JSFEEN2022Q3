@@ -71,4 +71,47 @@ class IntBuilder extends MainBuilder {
 
 }
 
+//-----------ES5 Class----------//
+
+function StringBuilder(str) {
+    MainBuilder.call(this, str);
+    this.str = str;
+}
+
+StringBuilder.prototype = Object.create(MainBuilder.prototype);
+StringBuilder.prototype.constructor = StringBuilder;
+
+StringBuilder.prototype.plus = function(...str) {
+    this.str = ''.concat(this.str, ...str);
+    return this;
+};
+
+StringBuilder.prototype.minus = function(n) {
+    this.str = this.str.slice(0, this.str.length-n);
+    return this;
+}
+StringBuilder.prototype.multiply = function(n) {
+    this.str = Array(n + 1).join(this.str);
+    return this;
+}
+
+StringBuilder.prototype.divide = function(n) {
+    var k = Math.floor(this.str.length / n);
+    this.str = this.str.slice(0,k);
+    return this;
+}
+
+StringBuilder.prototype.remove = function(str) {
+    this.str = this.str.split(str).join('');
+    return this;
+}
+
+StringBuilder.prototype.sub = function(from, n) {
+    this.str = this.str.substring(from, n + 1);
+    return this;
+}
+
+StringBuilder.prototype.get = function() {
+    return this.str;
+}
 
