@@ -20,7 +20,7 @@ MainBuilder.prototype.sub = function(from, n) {};
 
 //static method
 MainBuilder.random  = function(from, to) {
-    if (typeof (from) !== 'number' || Number.isNaN(from) || typeof (to) !== 'number' || Number.isNaN(to)) {
+    if (typeof (from) !== 'number' || typeof (to) !== 'number') {
         return 'Error: The values must be numbers!';
     }
     return Math.floor(Math.random() * (to - from)) + from;
