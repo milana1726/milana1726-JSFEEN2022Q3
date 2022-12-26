@@ -4,13 +4,13 @@ function MainBuilder(value) {
 //methods of class MainBuilder
 MainBuilder.prototype.plus = function(...n) {};
 
-MainBuilder.prototype.minus= function(...n) {};
+MainBuilder.prototype.minus = function(...n) {};
 
 MainBuilder.prototype.multiply = function(n) {};
 
-MainBuilder.prototype.divide= function(n) {};
+MainBuilder.prototype.divide = function(n) {};
 
-MainBuilder.prototype.mod= function(n) {};
+MainBuilder.prototype.mod = function(n) {};
 
 MainBuilder.prototype.remove = function(str) {};
 
