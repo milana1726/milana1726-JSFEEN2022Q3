@@ -4,17 +4,16 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: "development",
-    entry: "./src/index.js",
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+    devtool: 'inline-source-map',
+    entry: "./src/js/index.js",
     output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "index_bundle.js"
+        filename: "./js/index_bundle.js",
+        path: path.resolve(__dirname, "dist/")
     },
     devServer: {
-        // static: './',
-        // // contentBase: path.join(__dirname, "dist/"),
         static: {
-            directory: path.join(__dirname, "dist"),
+            directory: path.join(__dirname, "dist/"),
           },
         compress: true,
         port: 3001,
@@ -22,26 +21,39 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader']
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ["@babel/preset-env"],
+                  },
+                },
             },
             {
-                test: /\.{png|jpe?g|gif|svg}$/i,
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.svg}$/i,
                 use: [
                     {
-                        loader: "file-loader",
-                        options: {
-                            name: "[name].[hash].[ext]",
-                            outputPath: "images"
-                        },
+                      loader: 'url-loader',
+                      options: {
+                        limit: 10000,
+                        esModule: false
+                      },
                     },
-                ],
+                ]
             },
             {
                 test: /\.html$/i,
                 use: ["html-loader"],
             },
-        ],
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.css']
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -53,5 +65,8 @@ module.exports = {
                { from: './src/assets/images', to: './images' }
             ]
         }),
-    ]
+    ],
+    experiments: {
+        topLevelAwait: true
+    }
 };
