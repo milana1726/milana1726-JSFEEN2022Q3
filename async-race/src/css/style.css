@@ -1,0 +1,265 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000;
+    width: 100%;
+}
+
+h1 {
+    margin: 20px auto;
+    font-size: 30px;
+    line-height: 110%;
+    color: #fff;
+    text-shadow: 0 0 10px #cd044a,0 0 20px #cd044a,0 0 30px #cd044a, 0 0 40px #cd044a;
+    text-align: center;
+}
+
+h1:hover {
+    text-shadow: 0 0 10px #798403,0 0 20px #798403,0 0 30px #798403, 0 0 40px #798403;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.main_container {
+    padding: 10px;
+}
+
+input {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    width: 120px;
+    border-radius: 2px;
+}
+
+input:input {
+    border: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    border: 1px solid #cd044a;
+}
+
+input[type="text"] {
+    padding-left: 10px;
+}
+
+button {
+    cursor: pointer;
+    padding: 5px;
+    text-transform: uppercase;
+    border: 0;
+    font-size: 14px;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #fdfdfd;
+    transition: all 0.5s ease-out;
+}
+
+button:disabled {
+    background-color: #636363;
+}
+
+button:disabled:hover {
+    cursor: auto;
+}
+
+button:disabled:active {
+    background-color: #636363;
+}
+
+.button_block {
+    display: flex;
+    gap: 7px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.button_main {
+    background-color: #2a2a2a;
+    color: #fff;
+    width: 120px;
+}
+
+.button_main:hover {
+    background-color: #555454;
+    transition: all 0.5s ease-out;
+}
+
+.button_main:active {
+    background-color: #fff;
+    color: #000;
+}
+
+.button_yellow {
+    background-color: #d5e05e;
+}
+
+.button_yellow:active {
+    background-color: #798403;
+}
+
+.button_pink {
+    background: #d3658c;
+}
+
+.button_pink:active {
+    background-color: #cd044a;
+}
+
+.button_green {
+    background-color: #6ad2af;
+}
+
+.button_green:active {
+    background-color: #009966;
+}
+
+.input_create_block, .input_update_block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 10px;
+}
+
+.color_car_create, .color_car_update {
+    margin: 0px 10px;
+    width: 30px;
+}
+
+.button_menu_block {
+    display: flex;
+    gap: 10px;
+}
+
+.garage .garage_title {
+    font-weight: 600;
+}
+
+.button_select,
+.button_remove {
+    margin-right: 10px;
+}
+
+.car_block {
+    margin-bottom: 10px;
+}
+
+.car_block_button {
+    margin-bottom: 10px;
+}
+
+.car_block_button span {
+    margin-left: 10px;
+    color: #e2b00a;
+}
+
+.button_start, .button_stop {
+    border-radius: 2px;
+    padding: 0;
+    cursor: pointer;
+    margin-right: 3px;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button_start {
+    background: url(../assets/images/start.svg) no-repeat;
+    background-color: #11ff09;
+}
+
+.button_stop {
+    background: url(../assets/images/stop.svg) no-repeat;
+    background-color: #fd0303;
+}
+
+.disable_button {
+    background-color: #636363;
+}
+
+.car_block_img {
+    border-bottom: 2px dashed white;
+    position: relative;
+}
+
+.svg_car {
+    display: inline-block;
+    position: relative;
+    margin-left: 7px;
+}
+
+.svg_car svg {
+    margin-bottom: -22px;
+}
+
+.svg_flag {
+    position: absolute;
+    top: 12px;
+    right: 7%;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+}
+
+.button_prev {
+    margin-top: 15px;
+    margin-right: 10px;
+    height: 25px;
+    width: 60px;
+}
+
+.button_next {
+    margin-top: 15px;
+    margin-left: 10px;
+    height: 25px;
+    width: 60px;
+}
+
+.page_title {
+    flex-direction: row;
+}
+
+.page_number {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.table th {
+    border: 1px solid white;
+    background-color: #27c2d6;
+    padding: 5px;
+}
+
+.table th p {
+    margin: 0px;
+}
+
+.win {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #11ff09;
+    font-size: 26px;
+    font-weight: 600;
+    text-shadow: #FC0 1px 0 10px;
+}
