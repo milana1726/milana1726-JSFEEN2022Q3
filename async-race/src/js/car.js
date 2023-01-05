@@ -1,6 +1,6 @@
 import { garageCars } from "./index.js";
-import { getCarById, removeCar, updateCar } from "./api.js";
-import { store, getHexRGBColor } from "./data.js";
+import { getCarById, removeCar, updateCar, engineStartStop, driveCar } from "./api.js";
+import { store, getHexRGBColor, getDistance } from "./data.js";
 
 export default class Car {
     constructor(nameCar, colorCar, idCar) {
@@ -8,6 +8,8 @@ export default class Car {
         this.colorCar = colorCar;
         this.idCar = idCar;
         this.carList = document.querySelector(".car_list");
+        this.buttonRace = document.querySelector(".button_menu_race");
+        this.buttonReset = document.querySelector(".button_menu_reset");
         this.buttonUpdate;
         this.buttonSelect;
         this.buttonRemove;
@@ -31,8 +33,8 @@ export default class Car {
                 <span class="name_car" id="car-name-${idCar}">${nameCar}</span>
             </div>
             <div class="car_block_img">
-                <button class="button_start"></button>
-                <button class="button_stop"></button>
+                <button class="button_start" id="start-${idCar}"></button>
+                <button class="button_stop" id="stop-${idCar}" disabled></button>
                 <div class="svg_car">${this.appendCarSvg(idCar, colorCar)}</div>
                 <div class="svg_flag">${this.appendFlagSvg(idCar)}</div>
             </div>
@@ -44,6 +46,8 @@ export default class Car {
         this.buttonUpdate = document.querySelector(".button_update");
         this.buttonSelect = document.getElementById(`select-${idCar}`);
         this.buttonRemove = document.getElementById(`remove-${idCar}`);
+        this.buttonStart =  document.getElementById(`start-${idCar}`);
+        this.buttonStop =  document.getElementById(`stop-${idCar}`);
 
     }
 
@@ -64,9 +68,20 @@ export default class Car {
                 this.removeBlockCar(event);
             }
         });
+
+        //click start drive
+        this.buttonStart.addEventListener("click", (event) => {
+            const id = +event.target.id.split('start-')[1];
+            this.startDriving(id);
+        });
+
+        //click stop drive
+        this.buttonStop.addEventListener("click", (event) => {
+            const id = +event.target.id.split('stop-')[1];
+            this.stopDriving(id);
+        });
     }
 
-    //select car
     async selectCar(event) {
         this.nameCarUpdate.disabled = false;
         this.colorCarUpdate.disabled = false;
@@ -94,13 +109,57 @@ export default class Car {
         });
     }
 
-    //remove car
     async removeBlockCar(event) {
-        const id = await getCarById(event.target.id.split('remove-')[1]);
-        removeCar(id.id)
+        const car = await getCarById(event.target.id.split('remove-')[1]);
+        removeCar(car.id)
         .then(() => {
             garageCars.updateStateGarage();
         });
+    }
+
+    async startDriving(id) {
+        this.buttonStart.disabled = true;
+        this.buttonStop.disabled = false;
+        const { velocity, distance } = await engineStartStop(id, 'started');
+        const duration =  Math.floor(distance / velocity);
+
+        const car = document.getElementById(`svg-car-${id}`);
+        const flag = document.getElementById(`svg-flag-${id}`);
+
+        const htmlDistance = Math.floor(getDistance(car, flag)) + 65;
+        const animation = car.animate([
+            {
+                transform: 'translateX(0)',
+            },
+            {
+                transform: `translateX(${htmlDistance}px)`,
+            },
+            ],
+            {
+                duration,
+                fill: 'forwards',
+            });
+
+        store.animation[id] = animation;
+
+        const { success } = await driveCar(id);
+        if (!success) {
+            animation.pause();
+        }
+        return { success, id, duration };
+    }
+
+    stopDriving(id) {
+        this.buttonStart.disabled = false;
+        this.buttonStop.disabled = true;
+        const animation = store.animation[id];
+
+        animation.pause();
+        engineStartStop(id, 'stopped');
+
+        if (animation) {
+            animation.currentTime = 0;
+        }
     }
 
     //svg icon car

@@ -1,5 +1,3 @@
-// import { animation } from "./data";
-
 export const getCars = async (page, limit = 7) => {
     const url = `http://127.0.0.1:3000/garage?_page=${page}&_limit=${limit}`;
     const response = await fetch(url);
@@ -49,12 +47,13 @@ export const updateCar = async (nameCar, colorCar, id) => {
 
 export const engineStartStop = async (id, status) => {
     const url = `http://127.0.0.1:3000/engine/?id=${id}&status=${status}`;
-    return await fetch(url).json();
+    const response = await fetch(url, { method: "PATCH" });
+    return response.json();
 }
 
 export const driveCar = async (id) => {
     const url = `http://127.0.0.1:3000/engine/?id=${id}&status=drive`;
-    const response = await fetch(url).catch();
+    const response = await fetch(url, { method: "PATCH" }).catch();
     return response.status !== 200 ? { success: false} : {...await response.json()};
 }
 
