@@ -15,7 +15,6 @@ export default class Car {
         this.colorCarUpdate;
         this.buttonStart;
         this.buttonStop;
-        this.selectedId;
         this.selectedCar = null;
         this.createBlockCar(this.nameCar, this.colorCar, this.idCar);
         this.listener();
@@ -52,6 +51,7 @@ export default class Car {
         //click select car
         this.buttonSelect.addEventListener("click", (event) => {
             this.selectCar(event);
+
             //click update car
             this.buttonUpdate.addEventListener("click", () => {
                 this.updateBlockCar();
@@ -77,7 +77,6 @@ export default class Car {
         this.colorCarUpdate.value = this.selectedCar.color;
     }
 
-    //update car
     updateBlockCar() {
         if (this.nameCarUpdate.value === "") {
             alert("Enter car name!");
