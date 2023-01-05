@@ -1,7 +1,6 @@
 import "../css/style.css";
+import { store } from "./data.js";
 import Garage from "./garage.js";
-import { createCar } from "./api.js";
-import { store, dataCars, dataModels, getHexRGBColor, getRandomColor, getRandomName } from "./data.js";
 
 document.querySelector(".wrapper").innerHTML = `
         <header>
@@ -32,8 +31,8 @@ document.querySelector(".wrapper").innerHTML = `
                         <button class="button_update button_pink" disabled>update</button>
                     </div>
                     <div class="button_menu_block">
-                        <button class="button_menu_race button_yellow">Race</button>
-                        <button class="button_menu_reset button_yellow">Reset</button>
+                        <button class="button_menu_race button_yellow" disable>Race</button>
+                        <button class="button_menu_reset button_yellow" disable>Reset</button>
                         <button class="button_menu_generate button_green">Generate Car</button>
                     </div>
                 </div>
@@ -56,13 +55,13 @@ document.querySelector(".wrapper").innerHTML = `
                         Page #<span class="winners_count">0</span>
                     </p>
                     <table border="1" class="table">
-                    <tr>
-                    <th>Number</th>
-                    <th>Car</th>
-                    <th>Name</th>
-                    <th>Win</th>
-                    <th>Best time(second)</th>
-                    </tr>
+                        <tr>
+                            <th>Number</th>
+                            <th>Car</th>
+                            <th>Name</th>
+                            <th>Win</th>
+                            <th>Best time(second)</th>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -70,56 +69,5 @@ document.querySelector(".wrapper").innerHTML = `
 `;
 
 export const garageCars = new Garage(store.cars, store.carsCount, store.pageCars);
-
-const inputNameCarCreate = document.querySelector(".name_car_create");
-const inputColorCarCreate = document.querySelector(".color_car_create");
-const buttonCreate = document.querySelector(".button_create");
-const generateButton = document.querySelector(".button_menu_generate");
-const btnNext = document.getElementById("next");
-const btnPrev = document.getElementById("prev");
-
-//add new car
-buttonCreate.addEventListener("click", () => {
-    const name = inputNameCarCreate.value;
-    const color = inputColorCarCreate.value;
-    let id = 1;
-    if (store.cars.length) {
-        id += store.cars[store.cars.length-1].id;
-    }
-    if (inputNameCarCreate.value === "") {
-        alert("Enter car name!");
-    } else {
-            createCar({ name: name, color: color })
-            .then(() => {
-                garageCars.updateStateGarage();
-            });
-        }
-});
-
-//generate random cars
-generateButton.addEventListener("click", () => {
-    let i = 100;
-    while (i !== 0) {
-        const name = `${dataCars[getRandomName(0, dataCars.length)]} - ${dataModels[getRandomName(0, dataModels.length)]}`;
-        const color = `rgb(${Math.floor(getRandomColor(0, 255))},${Math.floor(getRandomColor(0, 255))},${Math.floor(getRandomColor(0, 255))})`;
-        createCar( { name: name, color:  `#${getHexRGBColor(color)}` })
-        .then(() => {
-            garageCars.updateStateGarage();
-        })
-        i--;
-    }
-});
-
-//click Next
-btnNext.addEventListener("click", () => {
-    store.pageCars++;
-    garageCars.updateStateGarage();
-});
-
-//click Prev
-btnPrev.addEventListener("click", () => {
-    store.pageCars--;
-    garageCars.updateStateGarage();
-});
 
 
