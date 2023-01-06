@@ -4,19 +4,19 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    devtool: 'source-map',
-    entry: "./src/js/index.js",
+    mode: "development",
+    devtool: "source-map",
+    entry: "./src/index.js",
     output: {
-        filename: "index_bundle.js",
         path: path.resolve(__dirname, "dist/"),
+        filename: "[name].js",
     },
     devServer: {
         static: {
             directory: path.join(__dirname, "dist/"),
         },
         compress: true,
-        port: 3001,
+        port: 5500,
     },
     module: {
         rules: [
