@@ -7,44 +7,32 @@ const { items: cars, count: carsCount } = await getCars(1);
 export const store = {
     pageCars: 1,
     cars,
-    carsCount
+    carsCount,
+    animation: {}
 };
 
 export const getHexRGBColor = (color) => {
-    color = color.replace(/\s/g, "");
-    const aRGB = color.match(/^rgb\((\d{1,3}[%]?),(\d{1,3}[%]?),(\d{1,3}[%]?)\)$/i);
-    if (aRGB) {
-        color = "";
-        for (let i = 1; i <= 3; i += 1) {
-            color += Math.round((aRGB[i][aRGB[i].length - 1] === "%" ? 2.55 : 1) * parseInt(aRGB[i], 10))
-            .toString(16)
-            .replace(/^(.)$/, "0$1");
-        }
-    } else {
-            color = color.replace(/^#?([\da-f])([\da-f])([\da-f])$/i, "$1$1$2$2$3$3");
-    }
-    return color;
+    return color.toString(16);
 };
 
-export const getRandomColor = (min, max) => {
-    return Math.random() * (max - min) + min;
+export const getRandomColor = () => {
+    return Math.floor(Math.random() * 16777215).toString(16);
 }
 
-export const getRandomName = (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min);
+export const getRandomName = (arr) => {
+    return Math.floor(Math.random() * arr.length);
 }
 
-export const animation = (velocity, event, status) => {
-    // if (velocity >= 100) {
-    //     velocity /= 10;
-    // }
-
-    const carSvg = event.parentNode.parentNode.children[1].children[2];
-    if (status === false) {
-        carSvg.classList.remove("startAnumation");
-    } else {
-    carSvg.style.animationDuration = `${velocity}s`;
-    carSvg.classList.add("startAnumation");
-  }
+const getPositionAtCenter = (element) => {
+    const { top, left, width, height } = element.getBoundingClientRect();
+    return {
+        x: left + width / 2,
+        y: top + height / 2
+    }
 }
 
+export const getDistance = (a, b) => {
+    const positionA =  getPositionAtCenter(a);
+    const positionB =  getPositionAtCenter(b);
+    return Math.hypot(positionA.x - positionB.x, positionA.y - positionB.y);
+};
