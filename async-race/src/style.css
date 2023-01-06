@@ -183,12 +183,12 @@ button:disabled:active {
 }
 
 .button_start {
-    background: url(../assets/images/start.svg) no-repeat;
+    background: url(./assets/images/start.svg) no-repeat;
     background-color: #11ff09;
 }
 
 .button_stop {
-    background: url(../assets/images/stop.svg) no-repeat;
+    background: url(./assets/images/stop.svg) no-repeat;
     background-color: #fd0303;
 }
 

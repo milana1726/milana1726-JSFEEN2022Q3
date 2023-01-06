@@ -1,6 +1,7 @@
 import Car from "./car.js";
-import { createCar, getCars } from "./api.js";
-import { store, dataCars, dataModels, getRandomColor, getRandomName } from "./data.js";
+import { createCar, getCars } from "../api.js";
+import { store, dataCars, dataModels } from "../store.js";
+import { getRandomName, getRandomColor } from "../helpers.js";
 
 export default class Garage {
     constructor(items, count, page) {

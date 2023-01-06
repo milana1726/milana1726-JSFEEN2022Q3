@@ -1,6 +1,7 @@
-import { garageCars } from "./index.js";
-import { getCarById, removeCar, updateCar, engineStartStop, driveCar } from "./api.js";
-import { store, getHexRGBColor, getDistance } from "./data.js";
+import { garageCars } from "../index.js";
+import { getCarById, removeCar, updateCar, engineStartStop, driveCar } from "../api.js";
+import { store } from "../store.js";
+import { getHexRGBColor, getDistance } from "../helpers.js";
 
 export default class Car {
     constructor(nameCar, colorCar, idCar) {
