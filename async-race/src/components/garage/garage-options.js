@@ -6,7 +6,7 @@ let startCount = 0;
 
 export const setStartCount = (count) => {
   startCount = count;
-}
+};
 
 export const areAllFinished = () => {
   startCount -= 1;
@@ -15,7 +15,7 @@ export const areAllFinished = () => {
     const buttonReset = document.querySelector('.button_menu_reset');
     buttonReset.removeAttribute('disabled');
   }
-}
+};
 
 const addMessage = (name, time) => {
   const mainContainer = document.querySelector('.main_container');
@@ -25,7 +25,7 @@ const addMessage = (name, time) => {
   mainContainer.append(message);
 
   setTimeout(() => message.remove(), 3000);
-}
+};
 
 export const setDisabled = (force) => {
   hasWinner = force;
@@ -38,23 +38,23 @@ export const setDisabled = (force) => {
   buttonReset.toggleAttribute('disabled', !force);
   buttonUpdate.toggleAttribute('disabled', !force);
   buttonGenerate.toggleAttribute('disabled', !force);
-}
+};
 
 export const removeDisabled = () => {
   const buttonRace = document.querySelector('.button_menu_race');
-    if (buttonRace.hasAttribute('disabled')) {
-      buttonRace.removeAttribute('disabled');
+  if (buttonRace.hasAttribute('disabled')) {
+    buttonRace.removeAttribute('disabled');
   }
-}
+};
 
 export const isWinner = async (car, time) => {
   if (!hasWinner) {
     addMessage(car.name, time);
     setDisabled(true);
     areAllFinished();
-    await saveWinner({id: car.id, time });
+    await saveWinner({ id: car.id, time });
   }
-}
+};
 
 export const setSorting = (eventTarget, sortType) => {
   if (eventTarget.dataset.sort === sortType) {
@@ -64,7 +64,7 @@ export const setSorting = (eventTarget, sortType) => {
     }
     store.order = store.order === 'asc' ? 'desc' : 'asc';
   }
-}
+};
 
 export const addArrowsSort = (sortType) => {
   if (sortType !== store.sortBy || store.sortBy === '') {
@@ -74,4 +74,4 @@ export const addArrowsSort = (sortType) => {
     return store.order === 'asc' ? '↑' : '↓';
   }
   return '';
-}
+};

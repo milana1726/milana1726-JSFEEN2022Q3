@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import './style.css';
 import Garage from './components/garage/garage';
 import { setSorting } from './components/garage/garage-options';
@@ -46,7 +45,7 @@ document.querySelector('.wrapper').innerHTML = `
                 </div>
                 <div class="winners" style="display: none">
                     <p class="winners_title">
-                        Winners (<span class="winners_count">${store.winnersCount}</span>)
+                        Winners (<span class="winners_count">${store.pageCarst}</span>)
                     </p>
                     <table class="table">
                         <thead>
@@ -87,38 +86,41 @@ const garageCount = document.querySelector('.garage_count');
 
 // view Garage
 buttonGarage.addEventListener('click', () => {
-    store.view = 'garage';
-    mainForm.style.display = 'block';
-    blockGarage.style.display ='block';
-    blockWinners.style.display = 'none';
-    garageCars.checkPagination(store.pageCars, store.carsCount, 7);
-    pageNumber.innerHTML = store.pageCars;
-    garageCount.innerHTML = store.carsCount;
+  store.view = 'garage';
+  mainForm.style.display = 'block';
+  blockGarage.style.display = 'block';
+  blockWinners.style.display = 'none';
 
+  garageCars.checkPagination(store.pageCars, store.carsCount, 7);
+  pageNumber.innerHTML = store.pageCars;
+  garageCount.innerHTML = store.carsCount;
 });
 
 // view Winners
 buttonWinner.addEventListener('click', () => {
-    store.view = 'winners';
-    blockWinners.style.display = 'block';
-    mainForm.style.display = 'none';
-    blockGarage.style.display = 'none';
-    garageCars.updateStateWinners();
-    garageCars.checkPagination(store.pageWinners, store.winnersCount, 10);
+  store.view = 'winners';
+  blockWinners.style.display = 'block';
+  mainForm.style.display = 'none';
+  blockGarage.style.display = 'none';
+
+  garageCars.checkPagination(store.pageWinners, store.winnersCount, 10);
+  pageNumber.innerHTML = store.pageWinners;
+  garageCount.innerHTML = store.winnersCount;
+  garageCars.updateStateWinners();
 });
 
 // sort Winners
 document.addEventListener('click', (event) => {
-    const eventTarget = event.target;
-    const elemTarget = eventTarget.classList.contains('sort')
-        ? eventTarget
-        : eventTarget.closest('.sort');
-    if (!elemTarget) {
-        return;
-    }
+  const eventTarget = event.target;
+  const elemTarget = eventTarget.classList.contains('sort')
+    ? eventTarget
+    : eventTarget.closest('.sort');
+  if (!elemTarget) {
+    return;
+  }
 
-    setSorting(elemTarget, 'wins');
-    setSorting(elemTarget, 'time');
+  setSorting(elemTarget, 'wins');
+  setSorting(elemTarget, 'time');
 
-    garageCars.updateStateWinners();
-})
+  garageCars.updateStateWinners();
+});

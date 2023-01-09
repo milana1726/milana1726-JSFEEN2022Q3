@@ -8,17 +8,18 @@ export const getRandomColor = () => Math.floor(Math.random() * 16777215).toStrin
 export const getRandomName = (arr) => Math.floor(Math.random() * arr.length);
 
 const getPositionAtCenter = (element) => {
-    const {
-        top, left, width, height
-    } = element.getBoundingClientRect();
-    return {
-        positionX: left + width / 2,
-        positionY: top + height / 2
-    }
-}
+  const {
+    top, left, width, height,
+  } = element.getBoundingClientRect();
+  return {
+    positionX: left + width / 2,
+    positionY: top + height / 2,
+  };
+};
 
 export const getDistance = (posA, posB) => {
-    const positionA = getPositionAtCenter(posA);
-    const positionB = getPositionAtCenter(posB);
-    return Math.hypot(positionA.positionX - positionB.positionX, positionA.positionY - positionB.positionY);
+  const positionA = getPositionAtCenter(posA);
+  const positionB = getPositionAtCenter(posB);
+  return Math
+    .hypot(positionA.positionX - positionB.positionX, positionA.positionY - positionB.positionY);
 };

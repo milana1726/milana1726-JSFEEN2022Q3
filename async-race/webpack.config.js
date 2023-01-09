@@ -1,72 +1,64 @@
-const path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
-    mode: "development",
-    devtool: "source-map",
-    entry: "./src/index.js",
-    output: {
-        path: path.resolve(__dirname, "dist/"),
-        filename: "[name].js",
-    },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, "dist/"),
+  entry: path.join(__dirname, 'src', 'index.js'),
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'index.[contenthash].js',
+    assetModuleFilename: path.join('assets', '[name].[contenthash][ext]'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader'],
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
+        generator: {
+          filename: path.join('assets', '[name].[contenthash][ext]'),
         },
-        compress: true,
-        port: 5500,
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"],
-                    },
-                },
-            },
-            {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"]
-            },
-            {
-                test: /\.svg}$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            esModule: false
-                        },
-                    },
-                ]
-            },
-            {
-                test: /\.html$/i,
-                use: ["html-loader"],
-            },
-        ]
-    },
-    resolve: {
-        extensions: ['.js', '.css']
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/index.html"
-        }),
-        new CleanWebpackPlugin(),
-        new CopyWebpackPlugin({
-            patterns: [
-               { from: './src/assets/images', to: './images' }
-            ]
-        }),
+      },
     ],
-    experiments: {
-        topLevelAwait: true
-    }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+    }),
+    new FileManagerPlugin({
+      events: {
+        onStart: {
+          delete: ['dist'],
+        },
+        onEnd: {
+          copy: [
+            {
+              source: path.join('src', 'static'),
+              destination: 'dist',
+            },
+          ],
+        },
+      },
+    }),
+  ],
+  devServer: {
+    watchFiles: path.join(__dirname, 'src'),
+    port: 5500,
+  },
 };

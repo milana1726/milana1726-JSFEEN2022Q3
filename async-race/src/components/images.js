@@ -1,6 +1,6 @@
 // svg icon car
 export const appendCarSvg = (id, color) => {
-    const svgStr = `
+  const svgStr = `
     <svg version="1.1" id="svg-car-${id}" width="70px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     viewBox="0 0 485.838 485.839" style="enable-background:new 0 0 485.838 485.839;" xml:space="preserve">
         <g>
@@ -29,12 +29,12 @@ export const appendCarSvg = (id, color) => {
             2.039 2.674 3.174 3.924 C 391.836 323.386 403.247 328.904 415.961 328.904 Z"/>
         </g>
     </svg>`;
-    return svgStr;
-}
+  return svgStr;
+};
 
 // svg icon finish flag
 export const appendFlagSvg = (id) => {
-    const svgStr = `
+  const svgStr = `
     <svg version="1.1" id="svg-flag-${id}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     width="38px" height="38px" viewBox="0 0 106.06 122.88" style="enable-background:new new 0 0 106.06 122.88;"
     xml:space="preserve">
@@ -47,5 +47,5 @@ export const appendFlagSvg = (id) => {
             37.73 H 8.43 V 55.3 H 23.62 L 23.62 55.3 Z"/>
         </g>
     </svg>`;
-    return svgStr;
-}
+  return svgStr;
+};
