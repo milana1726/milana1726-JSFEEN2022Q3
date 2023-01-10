@@ -55,7 +55,7 @@ export default class Garage {
     this.carList.innerHTML = '';
     this.buttonRace.removeAttribute('disabled');
     this.buttonReset.removeAttribute('disabled');
-    this.checkPagination(this.pageCars, count, 7);
+    this.checkPagination(this.pageCars, count, store.carsOnPage);
     this.renderCars(items);
     this.pageNumber.innerHTML = this.pageCars;
     this.garageCount.innerHTML = count;
@@ -81,7 +81,7 @@ export default class Garage {
     this.tableTimeOrder.textContent = addArrowsSort('time');
 
     arrayWinners.map((winner) => this.renderWinners(winner)).join('');
-    this.checkPagination(this.pageWinners, winners.count, 10);
+    this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
 
     this.pageNumber.innerHTML = this.pageWinners;
     this.winnersCount.innerHTML = winners.count;
