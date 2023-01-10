@@ -45,7 +45,7 @@ document.querySelector('.wrapper').innerHTML = `
                 </div>
                 <div class="winners" style="display: none">
                     <p class="winners_title">
-                        Winners (<span class="winners_count">${store.pageCarst}</span>)
+                        Winners (<span class="winners_count">${store.pageCars}</span>)
                     </p>
                     <table class="table">
                         <thead>
@@ -91,7 +91,7 @@ buttonGarage.addEventListener('click', () => {
   blockGarage.style.display = 'block';
   blockWinners.style.display = 'none';
 
-  garageCars.checkPagination(store.pageCars, store.carsCount, 7);
+  garageCars.checkPagination(store.pageCars, store.carsCount, store.carsOnPage);
   pageNumber.innerHTML = store.pageCars;
   garageCount.innerHTML = store.carsCount;
 });
@@ -103,7 +103,7 @@ buttonWinner.addEventListener('click', () => {
   mainForm.style.display = 'none';
   blockGarage.style.display = 'none';
 
-  garageCars.checkPagination(store.pageWinners, store.winnersCount, 10);
+  garageCars.checkPagination(store.pageWinners, store.winnersCount, store.winnerssOnPage);
   pageNumber.innerHTML = store.pageWinners;
   garageCount.innerHTML = store.winnersCount;
   garageCars.updateStateWinners();
