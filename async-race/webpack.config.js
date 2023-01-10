@@ -5,7 +5,7 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'deploy-async-race'),
     filename: 'index.[contenthash].js',
     assetModuleFilename: path.join('assets', '[name].[contenthash][ext]'),
   },
@@ -44,13 +44,13 @@ module.exports = {
     new FileManagerPlugin({
       events: {
         onStart: {
-          delete: ['dist'],
+          delete: ['deploy-async-race'],
         },
         onEnd: {
           copy: [
             {
               source: path.join('src', 'static'),
-              destination: 'dist',
+              destination: 'deploy-async-race',
             },
           ],
         },
