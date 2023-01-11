@@ -3,6 +3,7 @@ export default {
   pageCars: 1,
   carsOnPage: 7,
   carsCount: 1,
+  idCar: null,
   animation: {},
   pageWinners: 1,
   winnerssOnPage: 10,

@@ -63,7 +63,7 @@ export default class Car {
 
       // click update car
       this.buttonUpdate.addEventListener('click', () => {
-        this.updateBlockCar(this.view);
+        this.updateBlockCar();
       });
     });
 
@@ -93,6 +93,7 @@ export default class Car {
     this.selectedCar = await getCarById(event.target.id.split('select-')[1]);
     this.nameCarUpdate.value = this.selectedCar.name;
     this.colorCarUpdate.value = this.selectedCar.color;
+    store.idCar = this.selectedCar.id;
   }
 
   updateBlockCar() {
@@ -101,7 +102,8 @@ export default class Car {
       alert();
       return;
     }
-    updateCar(this.nameCarUpdate.value, `${getHexRGBColor(this.colorCarUpdate.value)}`, this.selectedCar.id)
+
+    updateCar(this.nameCarUpdate.value, `${getHexRGBColor(this.colorCarUpdate.value)}`, store.idCar)
       .then(() => {
         garageCars.updateStateGarage(this.view);
         this.nameCarUpdate.value = '';
@@ -114,15 +116,16 @@ export default class Car {
   }
 
   async removeBlockCar(event) {
-    const car = await getCarById(event.target.id.split('remove-')[1]);
-    deleteCar(car.id)
+    this.selectedCar = await getCarById(event.target.id.split('remove-')[1]);
+    deleteCar(this.selectedCar.id)
       .then(() => {
         garageCars.updateStateGarage(this.view);
       });
-    deleteWinner(car.id)
+    deleteWinner(this.selectedCar.id)
       .then(() => {
         garageCars.updateStateGarage('winners');
       });
+    this.selectedCar = null;
   }
 
   async startDriving(id) {

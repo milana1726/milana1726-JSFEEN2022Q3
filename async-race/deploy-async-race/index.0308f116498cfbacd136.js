@@ -1075,6 +1075,7 @@ var saveWinner = /*#__PURE__*/function () {
   pageCars: 1,
   carsOnPage: 7,
   carsCount: 1,
+  idCar: null,
   animation: {},
   pageWinners: 1,
   winnerssOnPage: 10,
@@ -1276,7 +1277,7 @@ var Car = /*#__PURE__*/function () {
 
         // click update car
         _this.buttonUpdate.addEventListener('click', function () {
-          _this.updateBlockCar(_this.view);
+          _this.updateBlockCar();
         });
       });
 
@@ -1327,7 +1328,8 @@ var Car = /*#__PURE__*/function () {
               this.selectedCar = _context2.sent;
               this.nameCarUpdate.value = this.selectedCar.name;
               this.colorCarUpdate.value = this.selectedCar.color;
-            case 8:
+              store.idCar = this.selectedCar.id;
+            case 9:
             case "end":
               return _context2.stop();
           }
@@ -1349,7 +1351,7 @@ var Car = /*#__PURE__*/function () {
         alert();
         return;
       }
-      updateCar(this.nameCarUpdate.value, "".concat(getHexRGBColor(this.colorCarUpdate.value)), this.selectedCar.id).then(function () {
+      updateCar(this.nameCarUpdate.value, "".concat(getHexRGBColor(this.colorCarUpdate.value)), store.idCar).then(function () {
         src.updateStateGarage(_this2.view);
         _this2.nameCarUpdate.value = '';
         _this2.colorCarUpdate.value = '#ffffff';
@@ -1364,25 +1366,25 @@ var Car = /*#__PURE__*/function () {
     value: function () {
       var _removeBlockCar = car_asyncToGenerator( /*#__PURE__*/car_regeneratorRuntime().mark(function _callee3(event) {
         var _this3 = this;
-        var car;
         return car_regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
               return getCarById(event.target.id.split('remove-')[1]);
             case 2:
-              car = _context3.sent;
-              deleteCar(car.id).then(function () {
+              this.selectedCar = _context3.sent;
+              deleteCar(this.selectedCar.id).then(function () {
                 src.updateStateGarage(_this3.view);
               });
-              deleteWinner(car.id).then(function () {
+              deleteWinner(this.selectedCar.id).then(function () {
                 src.updateStateGarage('winners');
               });
-            case 5:
+              this.selectedCar = null;
+            case 6:
             case "end":
               return _context3.stop();
           }
-        }, _callee3);
+        }, _callee3, this);
       }));
       function removeBlockCar(_x3) {
         return _removeBlockCar.apply(this, arguments);
