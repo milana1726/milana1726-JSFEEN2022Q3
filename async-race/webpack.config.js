@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
@@ -18,9 +20,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader'],
+        ],
       },
       {
         test: /\.js$/,
@@ -46,19 +48,28 @@ module.exports = {
         onStart: {
           delete: ['deploy-async-race'],
         },
-        onEnd: {
-          copy: [
-            {
-              source: path.join('src', 'static'),
-              destination: 'deploy-async-race',
-            },
-          ],
-        },
       },
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
     }),
   ],
   devServer: {
     watchFiles: path.join(__dirname, 'src'),
     port: 5500,
+  },
+  optimization: {
+    minimizer: [
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              ['svgo', { name: 'preset-default' }],
+            ],
+          },
+        },
+      }),
+    ],
   },
 };
