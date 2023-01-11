@@ -56,11 +56,16 @@ export default class Garage {
     this.buttonRace.removeAttribute('disabled');
     this.buttonReset.removeAttribute('disabled');
     this.checkPagination(this.pageCars, count, store.carsOnPage);
-    this.renderCars(items);
     this.pageNumber.innerHTML = this.pageCars;
     this.garageCount.innerHTML = count;
     store.pageCars = this.pageCars;
     store.carsCount = count;
+    if (store.view === 'winners') {
+      this.checkPagination(this.pageWinners, store.winnersCount, store.winnerssOnPage);
+      this.pageNumber.innerHTML = this.pageWinners;
+      this.winnersCount.innerHTML = store.winnersCount;
+    }
+    this.renderCars(items);
   }
 
   async updateStateWinners() {
@@ -81,12 +86,17 @@ export default class Garage {
     this.tableTimeOrder.textContent = addArrowsSort('time');
 
     this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
-    arrayWinners.map((winner) => this.renderWinners(winner)).join('');
-
     this.pageNumber.innerHTML = this.pageWinners;
     this.winnersCount.innerHTML = winners.count;
     store.pageWinners = this.pageWinners;
     store.winnersCount = winners.count;
+    if (store.view === 'garage') {
+      this.checkPagination(this.pageCars, store.carsCount, store.carsOnPage);
+      this.pageNumber.innerHTML = this.pageCars;
+      this.garageCount.innerHTML = store.carsCount;
+    }
+    arrayWinners.map((winner) => this.renderWinners(winner)).join('');
+    // this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
   }
 
   checkPagination(page, count, onPage) {

@@ -1090,6 +1090,7 @@ function garage_options_asyncGeneratorStep(gen, resolve, reject, _next, _throw, 
 function garage_options_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { garage_options_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { garage_options_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
+
 var hasWinner = true;
 var startCount = 0;
 var setStartCount = function setStartCount(count) {
@@ -1135,7 +1136,7 @@ var isWinner = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           if (hasWinner) {
-            _context.next = 6;
+            _context.next = 7;
             break;
           }
           addMessage(car.name, time);
@@ -1147,6 +1148,8 @@ var isWinner = /*#__PURE__*/function () {
             time: time
           });
         case 6:
+          src.updateStateWinners();
+        case 7:
         case "end":
           return _context.stop();
       }
@@ -1231,12 +1234,11 @@ function car_toPrimitive(input, hint) { if (car_typeof(input) !== "object" || in
 
 
 var Car = /*#__PURE__*/function () {
-  function Car(car, view) {
+  function Car(car) {
     _classCallCheck(this, Car);
     this.nameCar = car.name;
     this.colorCar = car.color;
     this.idCar = car.id;
-    this.view = view;
     this.carList = document.querySelector('.car_list');
     this.buttonRace = document.querySelector('.button_menu_race');
     this.buttonReset = document.querySelector('.button_menu_reset');
@@ -1352,7 +1354,8 @@ var Car = /*#__PURE__*/function () {
         return;
       }
       updateCar(this.nameCarUpdate.value, "".concat(getHexRGBColor(this.colorCarUpdate.value)), store.idCar).then(function () {
-        src.updateStateGarage(_this2.view);
+        src.updateStateGarage();
+        src.updateStateWinners();
         _this2.nameCarUpdate.value = '';
         _this2.colorCarUpdate.value = '#ffffff';
         _this2.nameCarUpdate.disabled = true;
@@ -1365,7 +1368,6 @@ var Car = /*#__PURE__*/function () {
     key: "removeBlockCar",
     value: function () {
       var _removeBlockCar = car_asyncToGenerator( /*#__PURE__*/car_regeneratorRuntime().mark(function _callee3(event) {
-        var _this3 = this;
         return car_regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
@@ -1374,10 +1376,10 @@ var Car = /*#__PURE__*/function () {
             case 2:
               this.selectedCar = _context3.sent;
               deleteCar(this.selectedCar.id).then(function () {
-                src.updateStateGarage(_this3.view);
+                src.updateStateGarage();
               });
               deleteWinner(this.selectedCar.id).then(function () {
-                src.updateStateGarage('winners');
+                src.updateStateWinners();
               });
               this.selectedCar = null;
             case 6:
@@ -1586,12 +1588,17 @@ var Garage = /*#__PURE__*/function () {
               this.buttonRace.removeAttribute('disabled');
               this.buttonReset.removeAttribute('disabled');
               this.checkPagination(this.pageCars, count, store.carsOnPage);
-              this.renderCars(items);
               this.pageNumber.innerHTML = this.pageCars;
               this.garageCount.innerHTML = count;
               store.pageCars = this.pageCars;
               store.carsCount = count;
-            case 15:
+              if (store.view === 'winners') {
+                this.checkPagination(this.pageWinners, store.winnersCount, store.winnerssOnPage);
+                this.pageNumber.innerHTML = this.pageWinners;
+                this.winnersCount.innerHTML = store.winnersCount;
+              }
+              this.renderCars(items);
+            case 16:
             case "end":
               return _context.stop();
           }
@@ -1636,14 +1643,20 @@ var Garage = /*#__PURE__*/function () {
               this.tableWinsOrder.textContent = addArrowsSort('wins');
               this.tableTimeOrder.textContent = addArrowsSort('time');
               this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
-              arrayWinners.map(function (winner) {
-                return _this.renderWinners(winner);
-              }).join('');
               this.pageNumber.innerHTML = this.pageWinners;
               this.winnersCount.innerHTML = winners.count;
               store.pageWinners = this.pageWinners;
               store.winnersCount = winners.count;
-            case 16:
+              if (store.view === 'garage') {
+                this.checkPagination(this.pageCars, store.carsCount, store.carsOnPage);
+                this.pageNumber.innerHTML = this.pageCars;
+                this.garageCount.innerHTML = store.carsCount;
+              }
+              arrayWinners.map(function (winner) {
+                return _this.renderWinners(winner);
+              }).join('');
+              // this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
+            case 17:
             case "end":
               return _context2.stop();
           }

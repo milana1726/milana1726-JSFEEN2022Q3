@@ -1,3 +1,4 @@
+import garageCars from '../..';
 import { saveWinner } from '../api/api';
 import store from '../helpers/store';
 
@@ -53,6 +54,7 @@ export const isWinner = async (car, time) => {
     setDisabled(true);
     areAllFinished();
     await saveWinner({ id: car.id, time });
+    garageCars.updateStateWinners();
   }
 };
 

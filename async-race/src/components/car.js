@@ -8,11 +8,10 @@ import garageCars from '../index';
 import store from './helpers/store';
 
 export default class Car {
-  constructor(car, view) {
+  constructor(car) {
     this.nameCar = car.name;
     this.colorCar = car.color;
     this.idCar = car.id;
-    this.view = view;
     this.carList = document.querySelector('.car_list');
     this.buttonRace = document.querySelector('.button_menu_race');
     this.buttonReset = document.querySelector('.button_menu_reset');
@@ -105,7 +104,8 @@ export default class Car {
 
     updateCar(this.nameCarUpdate.value, `${getHexRGBColor(this.colorCarUpdate.value)}`, store.idCar)
       .then(() => {
-        garageCars.updateStateGarage(this.view);
+        garageCars.updateStateGarage();
+        garageCars.updateStateWinners();
         this.nameCarUpdate.value = '';
         this.colorCarUpdate.value = '#ffffff';
         this.nameCarUpdate.disabled = true;
@@ -119,11 +119,11 @@ export default class Car {
     this.selectedCar = await getCarById(event.target.id.split('remove-')[1]);
     deleteCar(this.selectedCar.id)
       .then(() => {
-        garageCars.updateStateGarage(this.view);
+        garageCars.updateStateGarage();
       });
     deleteWinner(this.selectedCar.id)
       .then(() => {
-        garageCars.updateStateGarage('winners');
+        garageCars.updateStateWinners();
       });
     this.selectedCar = null;
   }
