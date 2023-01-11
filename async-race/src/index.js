@@ -39,13 +39,13 @@ document.querySelector('.wrapper').innerHTML = `
                 </div>
                 <div class="garage">
                     <p class="garage_title">
-                        Garage (<span class="garage_count">${store.carsCount}</span>)
+                        Garage (<span class="garage_count">${store.view === 'garage' ? store.carsCount : store.winnersCount}</span>)
                     </p>
                     <div class="car_list"></div>
                 </div>
                 <div class="winners" style="display: none">
                     <p class="winners_title">
-                        Winners (<span class="winners_count">${store.pageCars}</span>)
+                        Winners (<span class="winners_count">${store.view === 'garage' ? store.pageCars : store.pageWinners}</span>)
                     </p>
                     <table class="table">
                         <thead>
@@ -71,6 +71,7 @@ const garageCars = new Garage(store.pageCars, store.pageWinners);
 export default garageCars;
 
 garageCars.updateStateGarage();
+garageCars.updateStateWinners();
 garageCars.listen();
 garageCars.pagination();
 
@@ -106,7 +107,6 @@ buttonWinner.addEventListener('click', () => {
   garageCars.checkPagination(store.pageWinners, store.winnersCount, store.winnerssOnPage);
   pageNumber.innerHTML = store.pageWinners;
   garageCount.innerHTML = store.winnersCount;
-  garageCars.updateStateWinners();
 });
 
 // sort Winners

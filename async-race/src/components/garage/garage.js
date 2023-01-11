@@ -80,8 +80,8 @@ export default class Garage {
     this.tableWinsOrder.textContent = addArrowsSort('wins');
     this.tableTimeOrder.textContent = addArrowsSort('time');
 
-    arrayWinners.map((winner) => this.renderWinners(winner)).join('');
     this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
+    arrayWinners.map((winner) => this.renderWinners(winner)).join('');
 
     this.pageNumber.innerHTML = this.pageWinners;
     this.winnersCount.innerHTML = winners.count;
