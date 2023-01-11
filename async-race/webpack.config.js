@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
@@ -20,7 +19,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
         ],
       },
@@ -49,9 +48,6 @@ module.exports = {
           delete: ['deploy-async-race'],
         },
       },
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
     }),
   ],
   devServer: {
