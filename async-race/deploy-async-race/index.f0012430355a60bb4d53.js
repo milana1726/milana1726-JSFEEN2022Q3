@@ -1136,7 +1136,7 @@ var isWinner = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           if (hasWinner) {
-            _context.next = 7;
+            _context.next = 6;
             break;
           }
           addMessage(car.name, time);
@@ -1146,10 +1146,10 @@ var isWinner = /*#__PURE__*/function () {
           return saveWinner({
             id: car.id,
             time: time
+          }).then(function () {
+            return src.updateStateWinners();
           });
         case 6:
-          src.updateStateWinners();
-        case 7:
         case "end":
           return _context.stop();
       }
@@ -1655,7 +1655,6 @@ var Garage = /*#__PURE__*/function () {
               arrayWinners.map(function (winner) {
                 return _this.renderWinners(winner);
               }).join('');
-              // this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
             case 17:
             case "end":
               return _context2.stop();

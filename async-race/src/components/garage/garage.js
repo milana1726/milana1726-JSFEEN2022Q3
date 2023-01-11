@@ -96,7 +96,6 @@ export default class Garage {
       this.garageCount.innerHTML = store.carsCount;
     }
     arrayWinners.map((winner) => this.renderWinners(winner)).join('');
-    // this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
   }
 
   checkPagination(page, count, onPage) {

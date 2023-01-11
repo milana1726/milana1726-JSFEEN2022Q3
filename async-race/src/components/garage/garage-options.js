@@ -53,8 +53,7 @@ export const isWinner = async (car, time) => {
     addMessage(car.name, time);
     setDisabled(true);
     areAllFinished();
-    await saveWinner({ id: car.id, time });
-    garageCars.updateStateWinners();
+    await saveWinner({ id: car.id, time }).then(() => garageCars.updateStateWinners());
   }
 };
 
