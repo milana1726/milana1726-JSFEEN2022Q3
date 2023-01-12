@@ -91,7 +91,7 @@ button:disabled:active {
 .button_main {
     background-color: #413e3e;
     color: #fff;
-    width: 120px;
+    width: 125px;
     height: 30px;
 }
 
@@ -114,6 +114,7 @@ button:disabled:active {
 }
 
 .button_pink {
+    width: 77px;
     background: #d3658c;
 }
 

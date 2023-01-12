@@ -16,13 +16,13 @@ document.querySelector('.wrapper').innerHTML = `
                     <button class="button_view_winner button_main">To Winners</button>
                 </div>
                 <div class="main_menu">
-                    <div class="input_create_block">
-                        <input type="text" class="name_car_create" value="Mercedes-Benz" />
+                    <form class="input_create_block">
+                        <input type="text" class="name_car_create" value="Mercedes-Benz" required/>
                         <input type="color" class="color_car_create" value="#ffffff" />
                         <button class="button_create button_pink">Create</button>
-                    </div>
-                    <div class="input_update_block">
-                        <input type="text" class="name_car_update" disabled />
+                    </form>
+                    <form class="input_update_block">
+                        <input type="text" class="name_car_update" disabled required/>
                         <input
                             type="color"
                             class="color_car_update"
@@ -30,11 +30,11 @@ document.querySelector('.wrapper').innerHTML = `
                             disabled
                         />
                         <button class="button_update button_pink" disabled>update</button>
-                    </div>
+                    </form>
                     <div class="button_menu_block">
                         <button class="button_menu_race button_yellow" disable>Race</button>
                         <button class="button_menu_reset button_yellow" disable>Reset</button>
-                        <button class="button_menu_generate button_green">Generate Car</button>
+                        <button class="button_menu_generate button_green">Generate Cars</button>
                     </div>
                 </div>
                 <div class="garage">
