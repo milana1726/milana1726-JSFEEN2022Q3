@@ -166,14 +166,12 @@ export default class Garage {
   addNewCar() {
     const name = this.inputNameCarCreate.value;
     const color = this.inputColorCarCreate.value;
-    if (this.inputNameCarCreate.value === '') {
-      const alert = () => 'Enter car name!';
-      alert();
-    } else {
+    if (this.inputNameCarCreate.value !== '') {
       createCar({ name, color })
         .then(() => {
           this.updateStateGarage(this.view);
         });
+      this.inputNameCarCreate.value = '';
     }
   }
 

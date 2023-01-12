@@ -96,23 +96,19 @@ export default class Car {
   }
 
   updateBlockCar() {
-    if (this.nameCarUpdate.value === '') {
-      const alert = () => 'Enter car name!';
-      alert();
-      return;
+    if (this.nameCarUpdate.value !== '') {
+      updateCar(this.nameCarUpdate.value, `${getHexRGBColor(this.colorCarUpdate.value)}`, store.idCar)
+        .then(() => {
+          garageCars.updateStateGarage();
+          garageCars.updateStateWinners();
+        });
+      this.nameCarUpdate.value = '';
+      this.colorCarUpdate.value = '#ffffff';
+      this.nameCarUpdate.disabled = true;
+      this.colorCarUpdate.disabled = true;
+      this.buttonUpdate.disabled = true;
+      this.selectedCar = null;
     }
-
-    updateCar(this.nameCarUpdate.value, `${getHexRGBColor(this.colorCarUpdate.value)}`, store.idCar)
-      .then(() => {
-        garageCars.updateStateGarage();
-        garageCars.updateStateWinners();
-        this.nameCarUpdate.value = '';
-        this.colorCarUpdate.value = '#ffffff';
-        this.nameCarUpdate.disabled = true;
-        this.colorCarUpdate.disabled = true;
-        this.buttonUpdate.disabled = true;
-        this.selectedCar = null;
-      });
   }
 
   async removeBlockCar(event) {
