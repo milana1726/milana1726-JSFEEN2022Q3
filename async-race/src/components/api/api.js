@@ -1,5 +1,9 @@
+const garage = 'http://127.0.0.1:3000/garage';
+const winners = 'http://127.0.0.1:3000/winners';
+const engine = 'http://127.0.0.1:3000/engine';
+
 export const getCars = async (page, limit = 7) => {
-  const url = `http://127.0.0.1:3000/garage?_page=${page}&_limit=${limit}`;
+  const url = `${garage}?_page=${page}&_limit=${limit}`;
   const response = await fetch(url);
   return {
     items: await response.json(),
@@ -8,13 +12,13 @@ export const getCars = async (page, limit = 7) => {
 };
 
 export const getCarById = async (id) => {
-  const url = `http://127.0.0.1:3000/garage/${id}`;
+  const url = `${garage}/${id}`;
   const response = await fetch(url);
   return response.json();
 };
 
 export const createCar = async (body) => {
-  const url = 'http://127.0.0.1:3000/garage';
+  const url = `${garage}`;
   await fetch(url, {
     method: 'POST',
     body: JSON.stringify(body),
@@ -25,7 +29,7 @@ export const createCar = async (body) => {
 };
 
 export const deleteCar = async (id) => {
-  const url = `http://127.0.0.1:3000/garage/${id}`;
+  const url = `${garage}/${id}`;
   await fetch(url, { method: 'DELETE' });
 };
 
@@ -34,7 +38,7 @@ export const updateCar = async (nameCar, colorCar, id) => {
     name: nameCar,
     color: colorCar,
   };
-  const url = `http://127.0.0.1:3000/garage/${id}`;
+  const url = `${garage}/${id}`;
   await fetch(url, {
     method: 'PUT',
     body: JSON.stringify(body),
@@ -45,13 +49,13 @@ export const updateCar = async (nameCar, colorCar, id) => {
 };
 
 export const engineStartStop = async (id, status) => {
-  const url = `http://127.0.0.1:3000/engine/?id=${id}&status=${status}`;
+  const url = `${engine}/?id=${id}&status=${status}`;
   const response = await fetch(url, { method: 'PATCH' });
   return response.json();
 };
 
 export const driveCar = async (id) => {
-  const url = `http://127.0.0.1:3000/engine/?id=${id}&status=drive`;
+  const url = `${engine}/?id=${id}&status=drive`;
   const response = await fetch(url, { method: 'PATCH' }).catch();
   if (response.status !== 200) {
     return { success: false };
@@ -62,7 +66,7 @@ export const driveCar = async (id) => {
 export const getWinners = async ({
   page, limit = 10, sort, order,
 }) => {
-  const response = await fetch(`http://127.0.0.1:3000/winners?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
+  const response = await fetch(`${winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
   const items = await response.json();
 
   return {
@@ -73,23 +77,23 @@ export const getWinners = async ({
 };
 
 export const getWinnerById = async (id) => {
-  const url = `http://127.0.0.1:3000/winners/${id}`;
+  const url = `${winners}/${id}`;
   const response = await fetch(url);
   return response.json();
 };
 
 export const getWinnerStatus = async (id) => {
-  const url = `http://127.0.0.1:3000/winners/${id}`;
+  const url = `${winners}/${id}`;
   return (await fetch(url)).status;
 };
 
 export const deleteWinner = async (id) => {
-  const url = `http://127.0.0.1:3000/winners/${id}`;
+  const url = `${winners}/${id}`;
   await fetch(url, { method: 'DELETE' });
 };
 
 export const createWinner = async (body) => {
-  const url = 'http://127.0.0.1:3000/winners';
+  const url = `${winners}`;
   await fetch(url, {
     method: 'POST',
     body: JSON.stringify(body),
@@ -100,7 +104,7 @@ export const createWinner = async (body) => {
 };
 
 export const updateWinners = async (id, body) => {
-  const url = `http://127.0.0.1:3000/winners/${id}`;
+  const url = `${winners}/${id}`;
   await fetch(url, {
     method: 'PUT',
     body: JSON.stringify(body),
