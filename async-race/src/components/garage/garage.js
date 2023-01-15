@@ -113,8 +113,8 @@ export default class Garage {
 
   listen() {
     // add new car
-    this.buttonCreate.addEventListener('click', () => {
-      this.addNewCar();
+    this.buttonCreate.addEventListener('click', (event) => {
+      this.addNewCar(event);
     });
 
     // generate random cars
@@ -163,16 +163,17 @@ export default class Garage {
     });
   }
 
-  addNewCar() {
+  addNewCar(event) {
     const name = this.inputNameCarCreate.value;
     const color = this.inputColorCarCreate.value;
     if (this.inputNameCarCreate.value !== '') {
+      event.preventDefault();
       createCar({ name, color })
         .then(() => {
           this.updateStateGarage(this.view);
         });
-      this.inputNameCarCreate.value = '';
     }
+    this.inputNameCarCreate.value = '';
   }
 
   generateCars() {
