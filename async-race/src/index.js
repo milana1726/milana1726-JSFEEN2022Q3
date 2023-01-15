@@ -1,7 +1,7 @@
 import './style.css';
 import Garage from './components/garage/garage';
 import { setSorting } from './components/garage/garage-options';
-import store from './components/helpers/store';
+import store, { garageView, winnersView } from './components/helpers/store';
 
 document.querySelector('.wrapper').innerHTML = `
         <header>
@@ -87,7 +87,7 @@ const garageCount = document.querySelector('.garage_count');
 
 // view Garage
 buttonGarage.addEventListener('click', () => {
-  store.view = 'garage';
+  store.view = garageView;
   mainForm.style.display = 'block';
   blockGarage.style.display = 'block';
   blockWinners.style.display = 'none';
@@ -99,7 +99,7 @@ buttonGarage.addEventListener('click', () => {
 
 // view Winners
 buttonWinner.addEventListener('click', () => {
-  store.view = 'winners';
+  store.view = winnersView;
   blockWinners.style.display = 'block';
   mainForm.style.display = 'none';
   blockGarage.style.display = 'none';
@@ -119,8 +119,10 @@ document.addEventListener('click', (event) => {
     return;
   }
 
-  setSorting(elemTarget, 'wins');
-  setSorting(elemTarget, 'time');
+  const sortWins = 'wins';
+  const sortTime = 'time';
+  setSorting(elemTarget, sortWins);
+  setSorting(elemTarget, sortTime);
 
   garageCars.updateStateWinners();
 });

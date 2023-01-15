@@ -9,7 +9,7 @@ import {
 } from '../helpers/helper';
 import Car from '../car';
 import Winner from '../winner';
-import store from '../helpers/store';
+import store, { garageView, winnersView } from '../helpers/store';
 
 export default class Garage {
   constructor(pageCars, pageWinners) {
@@ -60,7 +60,7 @@ export default class Garage {
     this.garageCount.innerHTML = count;
     store.pageCars = this.pageCars;
     store.carsCount = count;
-    if (store.view === 'winners') {
+    if (store.view === winnersView) {
       this.checkPagination(this.pageWinners, store.winnersCount, store.winnerssOnPage);
       this.pageNumber.innerHTML = this.pageWinners;
       this.winnersCount.innerHTML = store.winnersCount;
@@ -90,7 +90,7 @@ export default class Garage {
     this.winnersCount.innerHTML = winners.count;
     store.pageWinners = this.pageWinners;
     store.winnersCount = winners.count;
-    if (store.view === 'garage') {
+    if (store.view === garageView) {
       this.checkPagination(this.pageCars, store.carsCount, store.carsOnPage);
       this.pageNumber.innerHTML = this.pageCars;
       this.garageCount.innerHTML = store.carsCount;
@@ -136,12 +136,12 @@ export default class Garage {
   pagination() {
     // next page
     this.buttonNext.addEventListener('click', () => {
-      if (store.view === 'garage') {
+      if (store.view === garageView) {
         this.pageCars += 1;
         store.pageCars = this.pageCars;
         this.updateStateGarage();
       }
-      if (store.view === 'winners') {
+      if (store.view === winnersView) {
         this.pageWinners += 1;
         store.pageWinners = this.pageWinners;
         this.updateStateWinners();
@@ -150,12 +150,12 @@ export default class Garage {
 
     // previous page
     this.buttonPrev.addEventListener('click', () => {
-      if (store.view === 'garage') {
+      if (store.view === garageView) {
         this.pageCars -= 1;
         store.pageCars = this.pageCars;
         this.updateStateGarage();
       }
-      if (store.view === 'winners') {
+      if (store.view === winnersView) {
         this.pageWinners -= 1;
         store.pageWinners = this.pageWinners;
         this.updateStateWinners();

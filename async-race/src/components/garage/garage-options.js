@@ -4,6 +4,8 @@ import store from '../helpers/store';
 
 let hasWinner = true;
 let startCount = 0;
+export const ASC = 'asc';
+const DESC = 'desc';
 
 export const setStartCount = (count) => {
   startCount = count;
@@ -41,13 +43,6 @@ export const setDisabled = (force) => {
   buttonGenerate.toggleAttribute('disabled', !force);
 };
 
-export const removeDisabled = () => {
-  const buttonRace = document.querySelector('.button_menu_race');
-  if (buttonRace.hasAttribute('disabled')) {
-    buttonRace.removeAttribute('disabled');
-  }
-};
-
 export const isWinner = async (car, time) => {
   if (!hasWinner) {
     addMessage(car.name, time);
@@ -61,9 +56,9 @@ export const setSorting = (eventTarget, sortType) => {
   if (eventTarget.dataset.sort === sortType) {
     if (store.sortBy !== sortType) {
       store.sortBy = sortType;
-      store.order = 'asc';
+      store.order = ASC;
     }
-    store.order = store.order === 'asc' ? 'desc' : 'asc';
+    store.order = store.order === ASC ? DESC : ASC;
   }
 };
 
@@ -72,7 +67,7 @@ export const addArrowsSort = (sortType) => {
     return '';
   }
   if (store.sortBy === sortType) {
-    return store.order === 'asc' ? '↑' : '↓';
+    return store.order === ASC ? '↑' : '↓';
   }
   return '';
 };

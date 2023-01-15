@@ -1,5 +1,10 @@
+import { ASC } from '../garage/garage-options';
+
+export const garageView = 'garage';
+export const winnersView = 'winners';
+
 export default {
-  view: 'garage',
+  view: garageView,
   pageCars: 1,
   carsOnPage: 7,
   carsCount: 1,
@@ -9,5 +14,5 @@ export default {
   winnerssOnPage: 10,
   winnersCount: 1,
   sortBy: '',
-  order: 'asc',
+  order: ASC,
 };

@@ -13,8 +13,6 @@ export default class Car {
     this.colorCar = car.color;
     this.idCar = car.id;
     this.carList = document.querySelector('.car_list');
-    this.buttonRace = document.querySelector('.button_menu_race');
-    this.buttonReset = document.querySelector('.button_menu_reset');
     this.buttonUpdate = null;
     this.buttonSelect = null;
     this.buttonRemove = null;
