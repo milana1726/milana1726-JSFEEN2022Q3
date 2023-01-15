@@ -6664,6 +6664,9 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var garage = 'http://127.0.0.1:3000/garage';
+var winners = 'http://127.0.0.1:3000/winners';
+var engine = 'http://127.0.0.1:3000/engine';
 var getCars = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(page) {
     var limit,
@@ -6674,7 +6677,7 @@ var getCars = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           limit = _args.length > 1 && _args[1] !== undefined ? _args[1] : 7;
-          url = "http://127.0.0.1:3000/garage?_page=".concat(page, "&_limit=").concat(limit);
+          url = "".concat(garage, "?_page=").concat(page, "&_limit=").concat(limit);
           _context.next = 4;
           return fetch(url);
         case 4:
@@ -6704,7 +6707,7 @@ var getCarById = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          url = "http://127.0.0.1:3000/garage/".concat(id);
+          url = "".concat(garage, "/").concat(id);
           _context2.next = 3;
           return fetch(url);
         case 3:
@@ -6726,7 +6729,7 @@ var createCar = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          url = 'http://127.0.0.1:3000/garage';
+          url = "".concat(garage);
           _context3.next = 3;
           return fetch(url, {
             method: 'POST',
@@ -6751,7 +6754,7 @@ var deleteCar = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
-          url = "http://127.0.0.1:3000/garage/".concat(id);
+          url = "".concat(garage, "/").concat(id);
           _context4.next = 3;
           return fetch(url, {
             method: 'DELETE'
@@ -6776,7 +6779,7 @@ var updateCar = /*#__PURE__*/function () {
             name: nameCar,
             color: colorCar
           };
-          url = "http://127.0.0.1:3000/garage/".concat(id);
+          url = "".concat(garage, "/").concat(id);
           _context5.next = 4;
           return fetch(url, {
             method: 'PUT',
@@ -6801,7 +6804,7 @@ var engineStartStop = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee6$(_context6) {
       while (1) switch (_context6.prev = _context6.next) {
         case 0:
-          url = "http://127.0.0.1:3000/engine/?id=".concat(id, "&status=").concat(status);
+          url = "".concat(engine, "/?id=").concat(id, "&status=").concat(status);
           _context6.next = 3;
           return fetch(url, {
             method: 'PATCH'
@@ -6825,7 +6828,7 @@ var driveCar = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee7$(_context7) {
       while (1) switch (_context7.prev = _context7.next) {
         case 0:
-          url = "http://127.0.0.1:3000/engine/?id=".concat(id, "&status=drive");
+          url = "".concat(engine, "/?id=").concat(id, "&status=drive");
           _context7.next = 3;
           return fetch(url, {
             method: 'PATCH'
@@ -6865,7 +6868,7 @@ var getWinners = /*#__PURE__*/function () {
         case 0:
           page = _ref8.page, _ref8$limit = _ref8.limit, limit = _ref8$limit === void 0 ? 10 : _ref8$limit, sort = _ref8.sort, order = _ref8.order;
           _context9.next = 3;
-          return fetch("http://127.0.0.1:3000/winners?_page=".concat(page, "&_limit=").concat(limit, "&_sort=").concat(sort, "&_order=").concat(order));
+          return fetch("".concat(winners, "?_page=").concat(page, "&_limit=").concat(limit, "&_sort=").concat(sort, "&_order=").concat(order));
         case 3:
           response = _context9.sent;
           _context9.next = 6;
@@ -6922,7 +6925,7 @@ var getWinnerById = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee10$(_context10) {
       while (1) switch (_context10.prev = _context10.next) {
         case 0:
-          url = "http://127.0.0.1:3000/winners/".concat(id);
+          url = "".concat(winners, "/").concat(id);
           _context10.next = 3;
           return fetch(url);
         case 3:
@@ -6944,7 +6947,7 @@ var getWinnerStatus = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee11$(_context11) {
       while (1) switch (_context11.prev = _context11.next) {
         case 0:
-          url = "http://127.0.0.1:3000/winners/".concat(id);
+          url = "".concat(winners, "/").concat(id);
           _context11.next = 3;
           return fetch(url);
         case 3:
@@ -6965,7 +6968,7 @@ var deleteWinner = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee12$(_context12) {
       while (1) switch (_context12.prev = _context12.next) {
         case 0:
-          url = "http://127.0.0.1:3000/winners/".concat(id);
+          url = "".concat(winners, "/").concat(id);
           _context12.next = 3;
           return fetch(url, {
             method: 'DELETE'
@@ -6986,7 +6989,7 @@ var createWinner = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee13$(_context13) {
       while (1) switch (_context13.prev = _context13.next) {
         case 0:
-          url = 'http://127.0.0.1:3000/winners';
+          url = "".concat(winners);
           _context13.next = 3;
           return fetch(url, {
             method: 'POST',
@@ -7011,7 +7014,7 @@ var updateWinners = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee14$(_context14) {
       while (1) switch (_context14.prev = _context14.next) {
         case 0:
-          url = "http://127.0.0.1:3000/winners/".concat(id);
+          url = "".concat(winners, "/").concat(id);
           _context14.next = 3;
           return fetch(url, {
             method: 'PUT',
@@ -7076,8 +7079,11 @@ var saveWinner = /*#__PURE__*/function () {
   };
 }();
 ;// CONCATENATED MODULE: ./src/components/helpers/store.js
+
+var garageView = 'garage';
+var winnersView = 'winners';
 /* harmony default export */ const store = ({
-  view: 'garage',
+  view: garageView,
   pageCars: 1,
   carsOnPage: 7,
   carsCount: 1,
@@ -7087,7 +7093,7 @@ var saveWinner = /*#__PURE__*/function () {
   winnerssOnPage: 10,
   winnersCount: 1,
   sortBy: '',
-  order: 'asc'
+  order: ASC
 });
 ;// CONCATENATED MODULE: ./src/components/garage/garage-options.js
 function garage_options_typeof(obj) { "@babel/helpers - typeof"; return garage_options_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, garage_options_typeof(obj); }
@@ -7123,6 +7129,8 @@ function garage_options_asyncToGenerator(fn) { return function () { var self = t
 
 var hasWinner = true;
 var startCount = 0;
+var ASC = 'asc';
+var DESC = 'desc';
 var setStartCount = function setStartCount(count) {
   startCount = count;
 };
@@ -7153,12 +7161,6 @@ var setDisabled = function setDisabled(force) {
   buttonReset.toggleAttribute('disabled', !force);
   buttonUpdate.toggleAttribute('disabled', !force);
   buttonGenerate.toggleAttribute('disabled', !force);
-};
-var removeDisabled = function removeDisabled() {
-  var buttonRace = document.querySelector('.button_menu_race');
-  if (buttonRace.hasAttribute('disabled')) {
-    buttonRace.removeAttribute('disabled');
-  }
 };
 var isWinner = /*#__PURE__*/function () {
   var _ref = garage_options_asyncToGenerator( /*#__PURE__*/garage_options_regeneratorRuntime().mark(function _callee(car, time) {
@@ -7193,9 +7195,9 @@ var setSorting = function setSorting(eventTarget, sortType) {
   if (eventTarget.dataset.sort === sortType) {
     if (store.sortBy !== sortType) {
       store.sortBy = sortType;
-      store.order = 'asc';
+      store.order = ASC;
     }
-    store.order = store.order === 'asc' ? 'desc' : 'asc';
+    store.order = store.order === ASC ? DESC : ASC;
   }
 };
 var addArrowsSort = function addArrowsSort(sortType) {
@@ -7203,7 +7205,7 @@ var addArrowsSort = function addArrowsSort(sortType) {
     return '';
   }
   if (store.sortBy === sortType) {
-    return store.order === 'asc' ? '↑' : '↓';
+    return store.order === ASC ? '↑' : '↓';
   }
   return '';
 };
@@ -7309,8 +7311,6 @@ var Car = /*#__PURE__*/function () {
     this.colorCar = car.color;
     this.idCar = car.id;
     this.carList = document.querySelector('.car_list');
-    this.buttonRace = document.querySelector('.button_menu_race');
-    this.buttonReset = document.querySelector('.button_menu_reset');
     this.buttonUpdate = null;
     this.buttonSelect = null;
     this.buttonRemove = null;
@@ -7701,7 +7701,7 @@ var Garage = /*#__PURE__*/function () {
               this.garageCount.innerHTML = count;
               store.pageCars = this.pageCars;
               store.carsCount = count;
-              if (store.view === 'winners') {
+              if (store.view === winnersView) {
                 this.checkPagination(this.pageWinners, store.winnersCount, store.winnerssOnPage);
                 this.pageNumber.innerHTML = this.pageWinners;
                 this.winnersCount.innerHTML = store.winnersCount;
@@ -7756,7 +7756,7 @@ var Garage = /*#__PURE__*/function () {
               this.winnersCount.innerHTML = winners.count;
               store.pageWinners = this.pageWinners;
               store.winnersCount = winners.count;
-              if (store.view === 'garage') {
+              if (store.view === garageView) {
                 this.checkPagination(this.pageCars, store.carsCount, store.carsOnPage);
                 this.pageNumber.innerHTML = this.pageCars;
                 this.garageCount.innerHTML = store.carsCount;
@@ -7794,8 +7794,8 @@ var Garage = /*#__PURE__*/function () {
     value: function listen() {
       var _this2 = this;
       // add new car
-      this.buttonCreate.addEventListener('click', function () {
-        _this2.addNewCar();
+      this.buttonCreate.addEventListener('click', function (event) {
+        _this2.addNewCar(event);
       });
 
       // generate random cars
@@ -7819,12 +7819,12 @@ var Garage = /*#__PURE__*/function () {
       var _this3 = this;
       // next page
       this.buttonNext.addEventListener('click', function () {
-        if (store.view === 'garage') {
+        if (store.view === garageView) {
           _this3.pageCars += 1;
           store.pageCars = _this3.pageCars;
           _this3.updateStateGarage();
         }
-        if (store.view === 'winners') {
+        if (store.view === winnersView) {
           _this3.pageWinners += 1;
           store.pageWinners = _this3.pageWinners;
           _this3.updateStateWinners();
@@ -7833,12 +7833,12 @@ var Garage = /*#__PURE__*/function () {
 
       // previous page
       this.buttonPrev.addEventListener('click', function () {
-        if (store.view === 'garage') {
+        if (store.view === garageView) {
           _this3.pageCars -= 1;
           store.pageCars = _this3.pageCars;
           _this3.updateStateGarage();
         }
-        if (store.view === 'winners') {
+        if (store.view === winnersView) {
           _this3.pageWinners -= 1;
           store.pageWinners = _this3.pageWinners;
           _this3.updateStateWinners();
@@ -7847,19 +7847,20 @@ var Garage = /*#__PURE__*/function () {
     }
   }, {
     key: "addNewCar",
-    value: function addNewCar() {
+    value: function addNewCar(event) {
       var _this4 = this;
       var name = this.inputNameCarCreate.value;
       var color = this.inputColorCarCreate.value;
       if (this.inputNameCarCreate.value !== '') {
+        event.preventDefault();
         createCar({
           name: name,
           color: color
         }).then(function () {
           _this4.updateStateGarage(_this4.view);
         });
-        this.inputNameCarCreate.value = '';
       }
+      this.inputNameCarCreate.value = '';
     }
   }, {
     key: "generateCars",
@@ -7940,7 +7941,7 @@ var garageCount = document.querySelector('.garage_count');
 
 // view Garage
 buttonGarage.addEventListener('click', function () {
-  store.view = 'garage';
+  store.view = garageView;
   mainForm.style.display = 'block';
   blockGarage.style.display = 'block';
   blockWinners.style.display = 'none';
@@ -7951,7 +7952,7 @@ buttonGarage.addEventListener('click', function () {
 
 // view Winners
 buttonWinner.addEventListener('click', function () {
-  store.view = 'winners';
+  store.view = winnersView;
   blockWinners.style.display = 'block';
   mainForm.style.display = 'none';
   blockGarage.style.display = 'none';
@@ -7967,8 +7968,10 @@ document.addEventListener('click', function (event) {
   if (!elemTarget) {
     return;
   }
-  setSorting(elemTarget, 'wins');
-  setSorting(elemTarget, 'time');
+  var sortWins = 'wins';
+  var sortTime = 'time';
+  setSorting(elemTarget, sortWins);
+  setSorting(elemTarget, sortTime);
   garageCars.updateStateWinners();
 });
 })();
