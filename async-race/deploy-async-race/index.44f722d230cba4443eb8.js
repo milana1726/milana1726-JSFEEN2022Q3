@@ -7082,6 +7082,8 @@ var saveWinner = /*#__PURE__*/function () {
 
 var garageView = 'garage';
 var winnersView = 'winners';
+var sortWins = 'wins';
+var sortTime = 'time';
 /* harmony default export */ const store = ({
   view: garageView,
   pageCars: 1,
@@ -7749,8 +7751,8 @@ var Garage = /*#__PURE__*/function () {
                 });
               });
               this.tableBody.innerHTML = '';
-              this.tableWinsOrder.textContent = addArrowsSort('wins');
-              this.tableTimeOrder.textContent = addArrowsSort('time');
+              this.tableWinsOrder.textContent = addArrowsSort(sortWins);
+              this.tableTimeOrder.textContent = addArrowsSort(sortTime);
               this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
               this.pageNumber.innerHTML = this.pageWinners;
               this.winnersCount.innerHTML = winners.count;
@@ -7968,8 +7970,6 @@ document.addEventListener('click', function (event) {
   if (!elemTarget) {
     return;
   }
-  var sortWins = 'wins';
-  var sortTime = 'time';
   setSorting(elemTarget, sortWins);
   setSorting(elemTarget, sortTime);
   garageCars.updateStateWinners();

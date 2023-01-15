@@ -2,6 +2,8 @@ import { ASC } from '../garage/garage-options';
 
 export const garageView = 'garage';
 export const winnersView = 'winners';
+export const sortWins = 'wins';
+export const sortTime = 'time';
 
 export default {
   view: garageView,

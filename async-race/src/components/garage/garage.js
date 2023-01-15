@@ -9,7 +9,9 @@ import {
 } from '../helpers/helper';
 import Car from '../car';
 import Winner from '../winner';
-import store, { garageView, winnersView } from '../helpers/store';
+import store, {
+  garageView, sortTime, sortWins, winnersView,
+} from '../helpers/store';
 
 export default class Garage {
   constructor(pageCars, pageWinners) {
@@ -82,8 +84,8 @@ export default class Garage {
     }));
 
     this.tableBody.innerHTML = '';
-    this.tableWinsOrder.textContent = addArrowsSort('wins');
-    this.tableTimeOrder.textContent = addArrowsSort('time');
+    this.tableWinsOrder.textContent = addArrowsSort(sortWins);
+    this.tableTimeOrder.textContent = addArrowsSort(sortTime);
 
     this.checkPagination(this.pageWinners, winners.count, store.winnerssOnPage);
     this.pageNumber.innerHTML = this.pageWinners;

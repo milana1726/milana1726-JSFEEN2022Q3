@@ -1,7 +1,9 @@
 import './style.css';
 import Garage from './components/garage/garage';
 import { setSorting } from './components/garage/garage-options';
-import store, { garageView, winnersView } from './components/helpers/store';
+import store, {
+  garageView, sortWins, sortTime, winnersView,
+} from './components/helpers/store';
 
 document.querySelector('.wrapper').innerHTML = `
         <header>
@@ -119,8 +121,6 @@ document.addEventListener('click', (event) => {
     return;
   }
 
-  const sortWins = 'wins';
-  const sortTime = 'time';
   setSorting(elemTarget, sortWins);
   setSorting(elemTarget, sortTime);
 

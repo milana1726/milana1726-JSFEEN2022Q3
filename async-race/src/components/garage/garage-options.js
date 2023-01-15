@@ -4,6 +4,7 @@ import store from '../helpers/store';
 
 let hasWinner = true;
 let startCount = 0;
+
 export const ASC = 'asc';
 const DESC = 'desc';
 
