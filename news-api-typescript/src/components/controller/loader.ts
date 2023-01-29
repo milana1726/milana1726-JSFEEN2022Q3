@@ -3,19 +3,19 @@ import { ResponseParams, Status } from '../interfaces_types/dataInterfacesTypes'
 
 class Loader {
     baseLink: string;
-    options: object;
-    constructor(baseLink: string, options: object) {
+    options: { apiKey: string };
+    constructor(baseLink: string, options: { apiKey: string }) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     public getResp<U>(
-        { endpoint, options }: ResponseParams,
+        params: ResponseParams,
         callback: CallBack<U> = () => {
             console.error('No callback for GET response');
         }
     ): void {
-        this.load<U>('GET', callback, { endpoint, options });
+        this.load<U>('GET', callback, params);
     }
 
     private errorHandler(res: Response): Response {
@@ -29,7 +29,7 @@ class Loader {
     }
 
     private makeUrl(params: Partial<ResponseParams>): string {
-        const urlOptions: object = { ...this.options, ...params.options };
+        const urlOptions: { apiKey: string } = { ...this.options, ...params.options };
         let url = `${this.baseLink}${params.endpoint}?`;
 
         const obj: string[] = Object.keys(urlOptions);
