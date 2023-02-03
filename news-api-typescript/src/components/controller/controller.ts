@@ -12,13 +12,13 @@ class AppController extends AppLoader {
     }
 
     getNews<N>(e: Event, callback: CallBack<N>): void {
-        let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
+        let target = <HTMLElement>e.target;
+        const newsContainer = <HTMLElement>e.currentTarget;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id') as string;
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
+                const sourceId: string | null = target.getAttribute('data-source-id');
+                if (sourceId && newsContainer?.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp<N>(
                         {
@@ -32,7 +32,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode as HTMLElement;
+            target = <HTMLElement>target.parentNode;
         }
     }
 }
