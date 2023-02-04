@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ext js",
     "test": "jest --config ./jest.config.js"
   },
   "repository": {
