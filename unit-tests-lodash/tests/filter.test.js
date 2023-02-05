@@ -10,6 +10,7 @@ const func = (o) => !o.active;
 describe('Filter method tests', () => {
   test('First argument is an array', () => {
     expect(() => filter('array', func)).toThrowError('First argument should be an array!');
+    expect(filter(users, func)).toBeTruthy();
   });
 
   test('First argument has length property', () => {
@@ -26,7 +27,7 @@ describe('Filter method tests', () => {
     expect(filter(users, func)).toEqual([{ user: 'fred', age: 40, active: false }]);
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(filter(users, func)).toBeInstanceOf(Array);
   });
 

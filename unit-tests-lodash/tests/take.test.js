@@ -21,7 +21,7 @@ describe('Take method tests', () => {
     expect(() => take(arr, -7)).toThrowError('Second argument should be >= 0');
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(take(arr)).toBeInstanceOf(Array);
   });
 

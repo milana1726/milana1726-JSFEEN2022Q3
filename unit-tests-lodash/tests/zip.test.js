@@ -18,7 +18,7 @@ describe('Zip method tests', () => {
     expect(() => zip([1], arr3, ['a', 'b', 'c'])).toThrowError('The length of all arrays should be equal!');
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(zip(arr1, arr2, arr3)).toBeInstanceOf(Array);
   });
 

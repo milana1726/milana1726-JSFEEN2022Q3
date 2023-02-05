@@ -28,7 +28,7 @@ describe('DropWhile method tests', () => {
     expect(dropWhile(users, func)).toEqual([{ user: 'pebbles', active: true }]);
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(dropWhile(users, func)).toBeInstanceOf(Array);
   });
 

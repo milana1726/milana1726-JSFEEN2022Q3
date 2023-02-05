@@ -13,7 +13,7 @@ describe('Compact method tests', () => {
     expect(() => compact([])).toThrowError('Array is empty!');
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(compact(arr)).toBeInstanceOf(Array);
   });
 

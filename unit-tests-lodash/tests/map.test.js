@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 const map = require('../lodash_methods/map');
 
 const arr = [4, 8];
@@ -27,15 +28,14 @@ describe('Map method tests', () => {
     expect(map(arr)).toEqual([4, 8]);
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(map(arr, square)).toBeInstanceOf(Array);
     expect(map(arr)).toBeInstanceOf(Array);
   });
 
-  test('Should create an array of values by running each element in collection throw iteratee', () => {
+  test('Should create an array of values by running each element in collection through iteratee', () => {
     expect(map(arr, square)).toEqual([16, 64]);
     expect(map(arr, (n) => n + 10)).toEqual([14, 18]);
-    // eslint-disable-next-line prefer-template
     expect(map(arr, (n) => (n + 'hello'))).toEqual(['4hello', '8hello']);
   });
 });

@@ -22,7 +22,7 @@ describe('Chunk method tests', () => {
     expect(() => chunk(arr, -7)).toThrowError('Second argument should be > 0');
   });
 
-  test('Result is an array', () => {
+  test('Should return an array', () => {
     expect(chunk(arr)).toBeInstanceOf(Array);
   });
 
