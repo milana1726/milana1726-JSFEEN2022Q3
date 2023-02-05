@@ -1,9 +1,10 @@
 const toPairs = (object) => {
-  if (typeof object !== 'object') {
+  if (typeof object !== 'object' && object !== undefined) {
     throw new Error('Argument should be an object!');
   }
-  if (!Object.keys(object).length) {
-    throw new Error('Object is empty!');
+
+  if (object === undefined) {
+    return [];
   }
 
   return Object.entries(object);

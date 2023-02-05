@@ -5,8 +5,8 @@ const omit = (object, paths) => {
   if (!Object.keys(object).length) {
     throw new Error('Object is empty!');
   }
-  if (!(paths === undefined) && !Array.isArray(paths)) {
-    throw new Error('Second argument should be an array!');
+  if (!(paths === undefined) && !(typeof paths === 'string') && !Array.isArray(paths)) {
+    throw new Error('Second argument should be a string or an array of strings!');
   }
 
   const result = { ...object };
@@ -14,11 +14,16 @@ const omit = (object, paths) => {
     return result;
   }
 
-  // eslint-disable-next-line guard-for-in
   for (const key in object) {
-    for (const path of paths) {
-      if (key === path) {
+    if (typeof paths === 'string') {
+      if (key === paths) {
         delete result[key];
+      }
+    } else {
+      for (const path of paths) {
+        if (key === path) {
+          delete result[key];
+        }
       }
     }
   }
