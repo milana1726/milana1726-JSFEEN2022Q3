@@ -1,0 +1,33 @@
+<div class="welcomepage" *transloco="let t" id="welcomepage">
+    <div class="welcomepage-wrapper">
+        <section class="about-block">
+        <div class="about-block-left">
+            <h1>{{ t('welcomepage.subtitle-1') }}</h1>
+            <hr>
+            <p>{{ t('welcomepage.pma-text') }}</p>
+            <button class="start-btn" routerLink="/auth/signup">{{ t('welcomepage.start-btn') }}</button>
+        </div>
+        <div class="about-block-right">
+            <img src="../../../../assets/images/pma.png" alt="pma-image">
+        </div>
+        </section>
+        <section class="works-block">
+            <div class="works-block-left">
+                <img src="../../../../assets/images/plan-image.jpg" alt="plan-image">
+            </div>
+            <div class="works-block-right">
+                <h2>{{ t('welcomepage.subtitle-2') }}</h2>
+                <hr>
+                <div class="works-arrow-block">
+                    <p>{{ t('welcomepage.pma-works.text-1') }}</p>
+                    <img src="../../../../assets/images/arrow1.png" alt="arrow-image">
+                    <p>{{ t('welcomepage.pma-works.text-2') }}</p>
+                    <img src="../../../../assets/images/arrow1.png" alt="arrow-image">
+                    <p>{{ t('welcomepage.pma-works.text-3') }}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
