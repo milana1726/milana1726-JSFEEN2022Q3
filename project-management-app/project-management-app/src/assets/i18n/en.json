@@ -1,0 +1,39 @@
+{
+  "signin": "Login",
+  "signup": "Sign Up",
+  "welcomepage": {
+    "start-btn": "Get started",
+    "subtitle-1": "Project Managment Application (PMA)",
+    "subtitle-2": "How does it work?",
+    "subtitle-3": "Created by:",
+    "pma-text": "Project management application software is designed to plan and document, manage and control project tasks and activities, to-do lists and schedules.",
+    "pma-works": {
+      "text-1": "Create boards",
+      "text-2": "Create columns",
+      "text-3": "Create tasks"
+    },
+    "about-author": "Hi! My name is Liudmyla. I'm a student of the online course “Javascript/Front-end Mentoring Program (in English)” at the Rolling Scopes School. This webproject is the final task of the course."
+  },
+  "footer": {
+    "author": "Liudmyla Melnychuk",
+    "date": "March 2023"
+  },
+  "auth": {
+    "name": "Name",
+    "login": "Login",
+    "password": "Password"
+  },
+  "forms": {
+    "error": "An error occured, please try again later",
+    "max": "Max characters",
+    "login-req": "Login is required",
+    "pass-req": "Password is required",
+    "name-req": "Name is required",
+    "login-placeh": "Enter a login",
+    "pass-placeh": "Enter a password",
+    "name-placeh": "Enter a name",
+    "login-length": "Login should be at least 3 characters",
+    "pass-length": "Password should be at least 6 characters",
+    "name-length": "Name should be at least 3 characters"
+  }
+}
