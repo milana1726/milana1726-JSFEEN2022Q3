@@ -1,0 +1,26 @@
+<header>
+    <div class="header-wrapper" >
+
+        <div class="header-left">
+            <img class="logo" src="../../../../assets/images/pma-logo.png" alt="PMA-logo" routerLink="/">
+            <mat-button-toggle-group class="lang-selector" name="lang-selector" aria-label="lang-selector">
+                <mat-button-toggle
+                    class="lang-btn"
+                    value="en"
+                    checked
+                    (click)="changeLang('en')"
+                >En</mat-button-toggle>
+                <mat-button-toggle
+                    class="lang-btn"
+                    value="ua"
+                    (click)="changeLang('ua')"
+                >Ua</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+
+        <div class="header-right" *transloco="let t">
+            <button class="signin-btn" routerLink="/auth/signin">{{ t('signin') }} </button>
+            <button class="signup-btn" routerLink="/auth/signup">{{ t('signup') }}</button>
+        </div>
+    </div>
+</header>
