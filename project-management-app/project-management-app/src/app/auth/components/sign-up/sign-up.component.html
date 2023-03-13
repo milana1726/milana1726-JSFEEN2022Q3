@@ -1,0 +1,67 @@
+<div class="container">
+    <form [formGroup]="signUpForm" *transloco="let t">
+        <mat-form-field appearance="fill">
+            <mat-label>{{ t('forms.name-placeh') }}</mat-label>
+            <input
+                matInput #inputName
+                type="text"
+                [placeholder]="t('forms.name-placeh')"
+                formControlName="name"
+                maxlength="20"
+            />
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputName.value.length}}/20</mat-hint>
+            <mat-error class="hint" *ngIf="name?.invalid">
+                <span *ngIf="name?.errors?.['required']">{{ t('forms.name-req') }}</span>
+                <span *ngIf="name?.errors?.['minlength']">{{ t('forms.name-length') }}</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{ t('forms.login-placeh') }}</mat-label>
+            <input
+                matInput #inputLogin
+                type="text"
+                [placeholder]="t('forms.login-placeh')"
+                formControlName="login"
+                maxlength="20"
+            />
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputLogin.value.length}}/20</mat-hint>
+            <mat-error class="hint" *ngIf="login?.invalid">
+                <span *ngIf="login?.errors?.['required']">{{ t('forms.login-req') }}</span>
+                <span *ngIf="login?.errors?.['minlength']">{{ t('forms.login-length') }}</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{ t('forms.pass-placeh') }}</mat-label>
+            <input matInput #inputPass
+                [type]="hide ? 'password' : 'text'"
+                type="password"
+                [placeholder]="t('forms.pass-placeh')"
+                formControlName="password"
+                maxlength="15"
+            />
+            <button class="icon-btn"
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputPass.value.length}}/15</mat-hint>
+            <mat-error class="error" *ngIf="password?.invalid">
+                <span *ngIf="password?.errors?.['required']">{{ t('forms.pass-req') }}</span>
+                <span *ngIf="password?.errors?.['minlength']">{{ t('forms.pass-length') }}</span>
+            </mat-error>
+        </mat-form-field>
+        <button mat-flat-button class="login-btn"
+            [disabled]="!signUpForm.valid"
+            type="submit"
+            (click)="onSubmit()"
+            color="primary"
+        >
+            {{ t("signin") }}
+        </button>
+    </form>
+</div>
