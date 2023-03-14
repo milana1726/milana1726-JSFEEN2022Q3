@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,14 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   activeLang: string;
-  constructor(private translate: TranslocoService) {}
+  isSignedIn = false;
+
+  constructor(
+    private translate: TranslocoService,
+    private router: Router,
+    public authService: AuthService) {}
 
   ngOnInit() {
     this.activeLang = 'en';
@@ -20,5 +27,8 @@ export class HeaderComponent {
     this.activeLang = lang;
   }
 
+  onSignOut() {
+    this.authService.signOut();
+  }
 
 }

@@ -2,7 +2,7 @@
     <div class="header-wrapper" >
 
         <div class="header-left">
-            <img class="logo" src="../../../../assets/images/pma-logo.png" alt="PMA-logo" routerLink="/">
+            <img class="logo" src="../../../../assets/images/pma-logo.png" alt="PMA-logo" routerLink="">
             <mat-button-toggle-group class="lang-selector" name="lang-selector" aria-label="lang-selector">
                 <mat-button-toggle
                     class="lang-btn"
@@ -19,8 +19,16 @@
         </div>
 
         <div class="header-right" *transloco="let t">
-            <button class="signin-btn" routerLink="/auth/signin">{{ t('signin') }} </button>
-            <button class="signup-btn" routerLink="/auth/signup">{{ t('signup') }}</button>
+            <button class="signin-btn" routerLink="/auth/signin" *ngIf="!authService.isSignedIn()">{{ t('signin') }} </button>
+            <button class="signup-btn" routerLink="/auth/signup" *ngIf="!authService.isSignedIn()">{{ t('signup') }}</button>
+
+            <div class="user-profile" *ngIf="authService.isSignedIn()">
+                <a href="#" class="user-name">
+                    <img class="logo" src="../../../../assets/icons/user-icon.png" alt="user-photo">
+                UserName</a>
+                <button class="edit-btn">{{ t('edit-profile') }}</button>
+                <button class="signout-btn" routerLink="/" (click)="onSignOut()"> {{ t('signout') }} </button>
+            </div>
         </div>
     </div>
 </header>

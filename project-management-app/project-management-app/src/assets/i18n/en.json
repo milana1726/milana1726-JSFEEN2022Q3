@@ -1,6 +1,8 @@
 {
   "signin": "Login",
   "signup": "Sign Up",
+  "signout": "Sign Out",
+  "edit-profile": "Edit profile",
   "welcomepage": {
     "start-btn": "Get started",
     "subtitle-1": "Project Managment Application (PMA)",
@@ -24,7 +26,10 @@
     "password": "Password"
   },
   "forms": {
-    "error": "An error occured, please try again later",
+    "signup-error": "Sign Up failed!",
+    "signup-success": "Your registration is successful!",
+    "signin-error": "Login failed!",
+    "signin-success": "Login is successful!",
     "max": "Max characters",
     "login-req": "Login is required",
     "pass-req": "Password is required",
@@ -35,5 +40,9 @@
     "login-length": "Login should be at least 3 characters",
     "pass-length": "Password should be at least 6 characters",
     "name-length": "Name should be at least 3 characters"
+  },
+  "not-found": {
+    "title": "Not Found",
+    "text": "The page you are looking for doesn't exist or an other error occured"
   }
 }

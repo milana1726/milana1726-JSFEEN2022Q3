@@ -22,7 +22,7 @@
                 type="password"
                 [placeholder]="t('forms.pass-placeh')"
                 formControlName="password"
-                maxlength="15"
+                maxlength="20"
             />
             <button class="icon-btn"
                 type="button"
@@ -34,13 +34,13 @@
             >
                 <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
             </button>
-            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputPass.value.length}}/15</mat-hint>
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputPass.value.length}}/20</mat-hint>
             <mat-error class="error" *ngIf="password?.invalid">
                 <span *ngIf="password?.errors?.['required']">{{ t('forms.pass-req') }}</span>
                 <span *ngIf="password?.errors?.['minlength']">{{ t('forms.pass-length') }}</span>
             </mat-error>
         </mat-form-field>
-        <button mat-flat-button class="login-btn"
+        <button mat-flat-button class="login-btn" *ngIf="!isSuccessful && !isSignInFailed"
             [disabled]="!signInForm.valid"
             type="submit"
             (click)="onSubmit()"
@@ -48,5 +48,11 @@
         >
             {{ t("signin") }}
         </button>
+        <div class="alert alert-danger" *ngIf="signInForm.valid && isSignInFailed">
+            {{ t('forms.signin-error') }}<br/>{{ errorMessage }}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="isSuccessful">
+            {{ t('forms.signin-success') }}
+        </div>
     </form>
 </div>

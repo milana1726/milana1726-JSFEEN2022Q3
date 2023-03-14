@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +13,7 @@ export class AuthComponent implements OnInit {
   index = 0;
   private subs: Subscription;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.subs = this.route.params.subscribe((parameter: Params) => {
@@ -22,5 +23,16 @@ export class AuthComponent implements OnInit {
         this.index = 1;
       }
     });
+  }
+
+  onTabChanged(event: MatTabChangeEvent): void {
+    switch (event.index) {
+      case 0:
+        this.router.navigate(['/auth/signin']);
+        break;
+      case 1:
+        this.router.navigate(['/auth/signup']);
+        break;
+    }
   }
 }

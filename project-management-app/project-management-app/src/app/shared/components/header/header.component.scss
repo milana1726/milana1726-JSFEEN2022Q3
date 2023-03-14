@@ -5,7 +5,7 @@ header {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 99;
 
     .header-wrapper {
         max-width: 1240px;
@@ -76,7 +76,9 @@ header {
             }
         }
 
-        .signup-btn {
+        .signup-btn,
+        .edit-btn,
+        .signout-btn {
             display: inline-block;
             padding: 6px 12px;
             height: 40px;
@@ -98,18 +100,39 @@ header {
                 border-color: #925ae0;
             }
         }
-    }
 
+        .user-profile {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+                pointer-events: none;
+                cursor: default;
+                color: #000;
+
+                img {
+                    width: 38px;
+                }
+            }
+
+            .edit-btn,
+            .signout-btn {
+                font-weight: 400;
+            }
+        }
+    }
 
     @media (min-width: 768px) and (max-width: 1279px) {
         .header-wrapper {
-        max-width: 95%;
+            max-width: 95%;
         }
     }
 
     @media (min-width: 320px) and (max-width: 767px) {
         .header-wrapper {
-        max-width: 90%;
+            max-width: 90%;
         }
 
         .lang-selector {
