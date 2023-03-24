@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { SignInData } from '../../models/interfaces/auth.interface';
+import { SignInData } from '../../models/interfaces/auth-interface';
 import { AuthService } from '../auth/auth.service';
 import { StorageService } from '../storage/storage.service';
 

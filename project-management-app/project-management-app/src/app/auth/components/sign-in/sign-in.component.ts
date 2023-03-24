@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Keys } from 'src/app/shared/models/enums/key.enum';
+import { Keys } from 'src/app/shared/models/enums/key-enum';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { StorageService } from 'src/app/shared/services/storage/storage.service';
 
@@ -13,7 +13,6 @@ import { StorageService } from 'src/app/shared/services/storage/storage.service'
 
 export class SignInComponent {
   hide = true;
-  isSignedIn = false;
   isSignInFailed = false;
   isSuccessful = false;
   errorMessage = '';

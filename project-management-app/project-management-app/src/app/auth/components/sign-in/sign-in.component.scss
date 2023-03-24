@@ -15,15 +15,7 @@
         }
 
         mat-form-field {
-            &.field {
-              width: 100%;
-            }
-
-            .icon-btn {
-                margin-right: 0.1rem;
-                border: none;
-                background-color: transparent;
-            }
+            width: 100%;
         }
 
         .login-btn {

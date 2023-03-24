@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,14 +9,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./auth.component.scss']
 })
 
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
   index = 0;
-  private subs: Subscription;
+  private subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.subs = this.route.params.subscribe((parameter: Params) => {
+    this.subscription = this.route.params.subscribe((parameter: Params) => {
       if (parameter['tab'] === 'signin') {
         this.index = 0;
       } else if (parameter['tab'] === 'signup') {
@@ -34,5 +34,9 @@ export class AuthComponent implements OnInit {
         this.router.navigate(['/auth/signup']);
         break;
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
