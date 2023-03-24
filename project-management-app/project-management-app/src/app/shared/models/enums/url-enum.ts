@@ -4,6 +4,7 @@ export enum UrlEnum {
   signUp = 'auth/signup',
   users = 'users',
   boards = 'boards',
+  boardsSet = 'boardsSet',
   columns = 'columns',
   tasks = 'tasks',
   file = 'file',

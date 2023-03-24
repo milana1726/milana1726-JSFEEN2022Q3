@@ -1,0 +1,86 @@
+.board-list {
+    .list-wrapper {
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      column-gap: 2rem;
+      row-gap: 2rem;
+      width: 100%;
+      margin: 0 auto 1rem;
+
+        .list-item {
+            width: 20rem;
+            min-height: 11rem;
+            border: 1px solid #6432ac;
+            border-radius: 0.3rem;
+            overflow: hidden;
+            word-break: break-all;
+            background-color:#f6f8e7;
+            transition: all ease 0.5s;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 5px 5px 1px rgba(100, 50, 172, 0.3);
+            }
+
+            .list-top {
+                padding: 1rem;
+                cursor: pointer;
+
+                .list-body {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 1rem;
+
+
+                    .list-title {
+                        margin-top: 1rem;
+                        margin-left: 0.8rem;
+                        font-size: 1rem;
+                        font-weight: 700;
+                        font-size: 1.2rem;
+                        width: 80%;
+                    }
+
+                    .list-btn {
+                        margin-top: -3rem;
+                        margin-right: -0.5rem;
+                        border: none;
+                        background-color: transparent;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .board-create {
+            background-color: #e9f4f8;
+            display: flex;
+            border: 2px dashed #6432ac;
+            justify-content: center;
+            align-items:center;
+
+            .board-new {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                cursor: pointer;
+
+                .board-new-title {
+                    margin: 0;
+                    font-size: 1.5rem;
+                    text-align: center;
+                    color: #000;
+                }
+
+                img {
+                    width: 40px;
+                }
+            }
+        }
+
+    }
+}
