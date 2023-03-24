@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 import { ModalBodyComponent } from './modal-body/modal-body.component';
 
 @Component({
@@ -10,13 +11,13 @@ import { ModalBodyComponent } from './modal-body/modal-body.component';
 export class ModalComponent {
   @Output() emitText: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private dialogService: DialogService
+    ) {}
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ModalBodyComponent, {
-      width: '25rem',
-    });
-    dialogRef.afterClosed().subscribe((result) => {
+  openModalDialog(): void {
+    this.dialogService.openDialog(ModalBodyComponent).subscribe((result) => {
       this.emitText.emit(result);
     });
   }

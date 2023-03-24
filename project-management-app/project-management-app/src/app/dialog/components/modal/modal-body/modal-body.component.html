@@ -1,4 +1,4 @@
-<div class="form-container" *transloco="let t">
+<div class="modal-container" *transloco="let t">
     <h2 mat-dialog-title>{{t('forms.enter-data')}}</h2>
     <mat-dialog-content>
         <form [formGroup]="createForm">
@@ -16,7 +16,7 @@
                     <span *ngIf="title?.errors?.['minlength']">{{ t('forms.title-length') }}</span>
                 </mat-error>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field *ngIf="!isShowOneField">
                 <textarea
                     matInput #description
                     [placeholder]="t('forms.description')"
@@ -30,14 +30,14 @@
     </mat-dialog-content>
     <mat-dialog-actions>
         <div class="dialog-btns">
-            <button class="btn-close" mat-flat-button [mat-dialog-close]="false">{{t('forms.btn-close')}}</button>
             <button class="btn-submit"
                 mat-flat-button
                 color="primary"
                 [disabled]="!createForm.valid"
                 type="submit"
-                (click)="createForm.valid && onSubmit(createForm.value)"> {{t('forms.btn-submit')}}
+                (click)="createForm.valid && onSubmit(createForm.value)">{{ t('forms.btn-submit') }}
             </button>
+            <button class="btn-close" mat-flat-button [mat-dialog-close]="false">{{ t('forms.btn-close') }}</button>
         </div>
     </mat-dialog-actions>
 </div>

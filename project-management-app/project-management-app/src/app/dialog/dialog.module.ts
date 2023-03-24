@@ -10,12 +10,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
 import { TranslocoModule } from '@ngneat/transloco';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+import { ConfirmBodyComponent } from './components/confirm/confirm-body/confirm-body.component';
 
 
 @NgModule({
   declarations: [
     ModalComponent,
-    ModalBodyComponent
+    ModalBodyComponent,
+    ConfirmComponent,
+    ConfirmBodyComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { TranslocoModule } from '@ngneat/transloco';
   ],
   exports: [
     ModalComponent,
-    ModalBodyComponent
+    ModalBodyComponent,
+    ConfirmComponent,
+    ConfirmBodyComponent
   ],
 })
 export class DialogModule { }

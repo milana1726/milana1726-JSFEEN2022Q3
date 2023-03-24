@@ -51,7 +51,13 @@
     "description-length": "Description should be at least 3 characters",
     "btn-close": "Close",
     "btn-submit": "Submit",
-    "search": "Search"
+    "search": "Search",
+    "btn-cancel": "Cancel",
+    "btn-ok": "Ok",
+    "title-delete-board": "Delete board",
+    "message-delete-board": "Are you shure you want to delete the board?",
+    "title-delete-user": "Delete account",
+    "message-delete-user": "Are you shure you want to delete your account?"
   },
   "not-found": {
     "title": "Not Found",

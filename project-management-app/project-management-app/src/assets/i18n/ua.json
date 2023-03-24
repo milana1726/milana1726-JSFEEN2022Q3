@@ -51,7 +51,13 @@
         "description-length": "Опис повинен складатися не менше ніж з 3 символів",
         "btn-close": "Закрити",
         "btn-submit": "Створити",
-        "search": "Пошук"
+        "search": "Пошук",
+        "btn-cancel": "Скасувати",
+        "btn-ok": "Так",
+        "title-delete-board": "Видалити дошку",
+        "message-delete-board": "Ви впевнені, що хочете видалити дошку?",
+        "title-delete-user": "Видалити аккаунт",
+        "message-delete-user": "Ви впевнені, що хочете видалити свій аккаунт?"
     },
     "not-found": {
         "title": "Не знайдено",
