@@ -6,21 +6,26 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DialogModule } from '../dialog/dialog.module';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent
-  ],
-  imports: [
-    CommonModule,
-    MatButtonToggleModule,
-    TranslocoModule,
-    RouterModule
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent
-  ]
+    declarations: [
+        HeaderComponent,
+        FooterComponent,
+        SearchPipe
+    ],
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        SearchPipe
+    ],
+    imports: [
+        CommonModule,
+        MatButtonToggleModule,
+        TranslocoModule,
+        RouterModule,
+        DialogModule
+    ]
 })
 export class SharedModule { }
