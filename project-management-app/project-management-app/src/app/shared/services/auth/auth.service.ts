@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UrlEnum } from '../../models/enums/url.enum';
-import { SignInData, SignUpData, SignInResponse } from '../../models/interfaces/auth.interface';
+import { UrlEnum } from '../../models/enums/url-enum';
+import { SignInData, SignUpData, SignInResponse } from '../../models/interfaces/auth-interface';
 import { RequestBuilderService } from '../request-builder/request-builder.service';
-import { UserData } from '../../models/interfaces/user.interface';
+import { User } from '../../models/interfaces/user-interface';
 import { Router } from '@angular/router';
 import { StorageService } from '../storage/storage.service';
-import { Keys } from '../../models/enums/key.enum';
+import { Keys } from '../../models/enums/key-enum';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import jwtDecode from 'jwt-decode';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,7 +31,7 @@ export class AuthService {
     return this.requestBuilderService.post(UrlEnum.baseURL + UrlEnum.signIn, body);
   }
 
-  signUp(body: SignUpData): Observable<UserData> {
+  signUp(body: SignUpData): Observable<User> {
     return this.requestBuilderService.post(UrlEnum.baseURL + UrlEnum.signUp, body);
   }
 
