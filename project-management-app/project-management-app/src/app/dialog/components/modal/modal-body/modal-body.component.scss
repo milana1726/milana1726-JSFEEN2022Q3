@@ -1,0 +1,51 @@
+.form-container {
+    width: 100%;
+    color: #000;
+
+    h2 {
+        margin-top: 1rem;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    form {
+        width: 100%;
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        gap: 0.8rem;
+
+        .error, .hint {
+            font-size: 0.8rem;
+        }
+
+        mat-form-field {
+              width: 100%;
+        }
+
+    }
+
+    .dialog-btns {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn-submit, .btn-close {
+            margin-top: 0.5rem;
+            height: 2.5rem;
+            width: 6rem;
+            font-size: 1rem;
+        }
+
+        .btn-submit:not([disabled]) {
+            background-color: #2583a8;
+            color: #fff;
+        }
+
+        .btn-close {
+            border: 2px solid #2583a8;
+        }
+    }
+}
