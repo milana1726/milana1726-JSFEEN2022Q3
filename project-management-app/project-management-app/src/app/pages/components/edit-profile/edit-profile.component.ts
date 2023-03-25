@@ -113,12 +113,13 @@ export class EditProfileComponent implements OnInit, OnDestroy {
       this.userService.deleteUser(this.userId).subscribe({
         next: () => this.authService.signOut(),
         error: (err) => {
-          // this.errorMessage = err.error.message;
-          // this.isEditFailed = true;
+          this.errorMessage = err.error.message;
+          this.isEditFailed = true;
         }
       });
+      this.router.navigate(['/']);
     }
-    this.router.navigate(['/']);
+    this.exitAlert();
   }
 
   ngOnDestroy() {

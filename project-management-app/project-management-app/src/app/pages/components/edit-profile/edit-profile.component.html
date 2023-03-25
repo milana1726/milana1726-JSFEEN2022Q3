@@ -57,14 +57,6 @@
                     <span *ngIf="password?.errors?.['minlength']">{{ t('forms.pass-length') }}</span>
                 </mat-error>
             </mat-form-field>
-            <app-confirm (emitConfirm)="onDelete($event)" appStopPropagation (click)="setDeleteUser()">
-                <button mat-flat-button class="delete-btn"
-                    type="submit"
-                    color="primary"
-                >
-                    {{ t("forms.delete-profile") }}
-                </button>
-            </app-confirm>
             <button mat-flat-button class="edit-btn" *ngIf="!isSuccessful && !isEditFailed"
                 [disabled]="!editForm.valid"
                 type="submit"
@@ -80,6 +72,14 @@
             <div class="alert alert-success" role="alert" *ngIf="isSuccessful">
                 {{ t('forms.edit-success') }}
             </div>
+            <app-confirm (emitConfirm)="onDelete($event)" appStopPropagation (click)="setDeleteUser()">
+                <button mat-flat-button class="delete-btn"
+                    type="submit"
+                    color="primary"
+                >
+                    {{ t("forms.delete-profile") }}
+                </button>
+            </app-confirm>
         </form>
     </div>
 </div>
