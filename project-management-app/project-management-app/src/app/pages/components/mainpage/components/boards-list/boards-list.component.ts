@@ -1,4 +1,4 @@
-import { Component,  OnInit, OnDestroy, Output } from '@angular/core';
+import { Component,  OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Keys } from 'src/app/shared/models/enums/key-enum';
 import { Board, CreateBoardEvent } from 'src/app/shared/models/interfaces/board-interface';
@@ -49,11 +49,12 @@ export class BoardsListComponent implements OnInit, OnDestroy {
   }
 
   setOneField() {
-    this.dialogService.setOneFiled();
+    document.getElementById("textarea-desc").hidden = true;
   }
 
   setDeleteBoard() {
-    this.dialogService.setDeleteBoard();
+    document.getElementById("delete-board").hidden = false;
+    document.getElementById("delete-profile").hidden = true;
   }
 
   ngOnDestroy() {

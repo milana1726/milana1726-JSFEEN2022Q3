@@ -57,7 +57,11 @@
     "title-delete-board": "Delete board",
     "message-delete-board": "Are you shure you want to delete the board?",
     "title-delete-user": "Delete account",
-    "message-delete-user": "Are you shure you want to delete your account?"
+    "message-delete-user": "Are you shure you want to delete your account?",
+    "accept-btn": "Accept changes",
+    "edit-error": "Editing failed!",
+    "edit-success": "Editing is successful!",
+    "delete-profile": "Delete an account"
   },
   "not-found": {
     "title": "Not Found",

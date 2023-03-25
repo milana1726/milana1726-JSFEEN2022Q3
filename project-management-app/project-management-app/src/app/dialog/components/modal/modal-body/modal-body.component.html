@@ -16,16 +16,18 @@
                     <span *ngIf="title?.errors?.['minlength']">{{ t('forms.title-length') }}</span>
                 </mat-error>
             </mat-form-field>
-            <mat-form-field *ngIf="!isShowOneField">
-                <textarea
-                    matInput #description
-                    [placeholder]="t('forms.description')"
-                    formControlName="description"
-                    maxlength="60"
-                ></textarea>
-                <mat-hint align="start" class="hint">{{ t('forms.max') }} {{description.value.length}}/20</mat-hint>
-                <mat-error class="hint" *ngIf="createForm.value.description">{{ t('forms.description-length') }}</mat-error>
-            </mat-form-field>
+            <div id="textarea-desc" hidden="true">
+                <mat-form-field>
+                    <textarea
+                        matInput #description
+                        [placeholder]="t('forms.description')"
+                        formControlName="description"
+                        maxlength="60"
+                    ></textarea>
+                    <mat-hint align="start" class="hint">{{ t('forms.max') }} {{description.value.length}}/20</mat-hint>
+                    <mat-error class="hint" *ngIf="createForm.value.description">{{ t('forms.description-length') }}</mat-error>
+                </mat-form-field>
+            </div>
         </form>
     </mat-dialog-content>
     <mat-dialog-actions>

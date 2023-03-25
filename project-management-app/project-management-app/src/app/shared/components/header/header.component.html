@@ -23,13 +23,13 @@
             <button class="signup-btn" routerLink="/auth/signup" *ngIf="!authService.isSignedIn()">{{ t('signup') }} </button>
 
             <div class="user-profile" *ngIf="authService.isSignedIn()">
-                <a href="#" class="user-name">
+                <a href="#" class="user-name" id="user-name">
                     <img class="logo" src="../../../../assets/icons/user-icon.png" alt="user-photo">
                 {{ userService.getUserLogin() }}</a>
                 <app-modal (emitText)="createNewBoard($event)">
                     <button class="create-btn" routerLink="/main">{{ t('main.board-new') }}</button>
                 </app-modal>
-                <button class="edit-btn">{{ t('edit-profile') }}</button>
+                <button class="edit-btn" routerLink="/edit-profile">{{ t('edit-profile') }}</button>
                 <button class="signout-btn" routerLink="/" (click)="onSignOut()"> {{ t('signout') }} </button>
             </div>
         </div>

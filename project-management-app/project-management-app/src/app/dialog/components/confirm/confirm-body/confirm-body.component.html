@@ -1,4 +1,4 @@
-<div>
+<div id="delete-board">
     <div class="confirm-container" *transloco="let t">
         <h2 mat-dialog-title>{{ t('forms.title-delete-board') }}</h2>
         <div mat-dialog-content>{{ t('forms.message-delete-board') }}</div>
@@ -10,7 +10,7 @@
         </div>
     </div>
 </div>
-<div *ngIf="!isDeleteBoard">
+<div id="delete-profile" hidden="true">
     <div class="confirm-container" *transloco="let t">
         <h2 mat-dialog-title>{{ t('forms.title-delete-user') }}</h2>
         <div mat-dialog-content>{{ t('forms.message-delete-user') }}</div>

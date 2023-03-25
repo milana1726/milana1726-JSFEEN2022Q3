@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   activeLang: string;
   isSignedIn = false;
 
-
   constructor(
     private translate: TranslocoService,
     private router: Router,

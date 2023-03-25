@@ -57,7 +57,11 @@
         "title-delete-board": "Видалити дошку",
         "message-delete-board": "Ви впевнені, що хочете видалити дошку?",
         "title-delete-user": "Видалити аккаунт",
-        "message-delete-user": "Ви впевнені, що хочете видалити свій аккаунт?"
+        "message-delete-user": "Ви впевнені, що хочете видалити свій аккаунт?",
+        "accept-btn": "Прийняти зміни",
+        "edit-error": "Редагування не вдалося!",
+        "edit-success": "Редагування успішне!",
+        "delete-profile": "Видалити аккаунт"
     },
     "not-found": {
         "title": "Не знайдено",

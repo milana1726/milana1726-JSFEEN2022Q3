@@ -8,11 +8,9 @@ import { ConfirmBodyComponent } from './confirm-body/confirm-body.component';
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent {
-  isDeleteBoard: boolean;
   @Output() emitConfirm: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private dialogService: DialogService) {
-    this.isDeleteBoard = this.dialogService.isShowDeleteBoard();
   }
 
   openConfirmDialog() {
