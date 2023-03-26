@@ -1,5 +1,5 @@
 <article class="board-list" *transloco="let t">
-    <ul class="list-wrapper" *ngIf="boards$ | async as boards">
+    <ul class="list-wrapper" *ngIf="(boards$ | async) as boards">
         <li class="list-item board-create" >
         <app-modal (emitText)="createNewBoard($event)" appStopPropagation (click)="setOneField()">
             <div class="board-new">

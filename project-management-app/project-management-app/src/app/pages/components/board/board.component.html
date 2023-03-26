@@ -1,0 +1,23 @@
+<section class="boardpage-wrapper" *transloco="let t">
+    <div class="boardpage-title">
+      <h2 class="board-title">Title</h2>
+      <app-search-bar></app-search-bar>
+    </div>
+    <div class="create-container">
+        <button mat-flat-button class="return-btn" (click)="onReturn()"
+            type="button"
+            color="primary"
+            ><mat-icon>keyboard_return</mat-icon> {{ t("forms.return-btn") }}
+        </button>
+        <app-modal (emitText)="createNewColumn($event)" (click)="setOneField()">
+            <button mat-flat-button
+                class="create-column-btn"
+                type="button"
+                color="primary"
+                ><mat-icon>add_to_photos</mat-icon> {{t('board.add-column')}}
+            </button>
+        </app-modal>
+    </div>
+    <hr class="board-line">
+    <app-column></app-column>
+</section>

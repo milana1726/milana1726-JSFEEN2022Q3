@@ -34,7 +34,7 @@ export class BoardsListComponent implements OnInit, OnDestroy {
 
   saveBoardId(id: string) {
       this.storageSernice.saveInStorage(Keys.BOARD_ID, id);
-      this.router.navigate(['/boards', id])
+      // this.router.navigate(['/boards', id])
   }
 
   createNewBoard(event: CreateBoardEvent) {
@@ -56,6 +56,8 @@ export class BoardsListComponent implements OnInit, OnDestroy {
   setDeleteBoard() {
     document.getElementById("delete-board").hidden = false;
     document.getElementById("delete-profile").hidden = true;
+    document.getElementById("delete-column").hidden = true;
+    document.getElementById("delete-task").hidden = true;
   }
 
   ngOnDestroy() {

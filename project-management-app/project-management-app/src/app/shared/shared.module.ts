@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TranslocoModule } from '@ngneat/transloco';
 import { RouterModule } from '@angular/router';
-
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DialogModule } from '../dialog/dialog.module';
 import { SearchPipe } from './pipes/search.pipe';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -25,7 +25,8 @@ import { SearchPipe } from './pipes/search.pipe';
         MatButtonToggleModule,
         TranslocoModule,
         RouterModule,
-        DialogModule
+        DialogModule,
+        MatIconModule
     ]
 })
 export class SharedModule { }

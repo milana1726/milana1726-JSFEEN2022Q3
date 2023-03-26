@@ -21,3 +21,22 @@ export interface BoardBodyRequest {
     owner: string;
     users: string[];
 }
+
+export interface Column {
+    _id: string;
+    title: string;
+    order: number;
+}
+
+export interface CreateColumnEvent {
+    clicked: string;
+    value: {
+      title: string;
+    };
+}
+
+export interface ColumnBodyRequest {
+    title: string;
+    order: number;
+}
+

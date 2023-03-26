@@ -20,7 +20,7 @@ export class BoardService {
   }
 
   public createBoard(data: CreateBoardRequest): Observable<Board> {
-    return this.requestBuilderService.post<Board>(UrlEnum.baseURL + UrlEnum.boards, data);
+    return this.requestBuilderService.post<Board>(`${UrlEnum.baseURL}${UrlEnum.boards}`, data);
   }
 
   public deleteBoard(id: string): Observable<unknown> {

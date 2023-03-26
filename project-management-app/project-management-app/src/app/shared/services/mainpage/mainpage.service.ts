@@ -2,7 +2,6 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Board, BoardBodyRequest, CreateBoardEvent } from '../../models/interfaces/board-interface';
 import { BoardService } from '../board/board.service';
-import { RequestBuilderService } from '../request-builder/request-builder.service';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -16,15 +15,14 @@ export class MainpageService implements OnDestroy {
 
   constructor(
     private boardService: BoardService,
-    private userService: UserService,
-    private requestBuilderService: RequestBuilderService) { }
+    private userService: UserService) { }
 
   public getAllBoards$() {
     return this.allBoards$.asObservable();
   }
 
   getAllBoard() {
-    this.boardService.getAllBoards().subscribe({
+    this.subscription.push(this.boardService.getAllBoards().subscribe({
       next: (data: Board[]) => {
         this.allBoards$.next(data);
       },
@@ -32,7 +30,7 @@ export class MainpageService implements OnDestroy {
         this.errorMessage = err.error.message;
         console.log(this.errorMessage);
       }
-    });
+    }));
   }
 
   createBoard(event: CreateBoardEvent) {
@@ -51,7 +49,9 @@ export class MainpageService implements OnDestroy {
           next: (item: Board[]) => {
             this.allBoards$.next(item);
           },
-          error: (error) => {
+          error: (err) => {
+            this.errorMessage = err.error.message;
+            console.log(this.errorMessage);
           },
         });
       },
@@ -59,17 +59,19 @@ export class MainpageService implements OnDestroy {
   }
 
   deleteBoard(id: string) {
-    this.boardService.deleteBoard(id).subscribe({
+    this.subscription.push(this.boardService.deleteBoard(id).subscribe({
       next: () => {
         this.boardService.getAllBoards().subscribe({
           next: (item: Board[]) => {
             this.allBoards$.next(item);
           },
-          error: (error) => {
+          error: (err) => {
+            this.errorMessage = err.error.message;
+            console.log(this.errorMessage);
           },
         });
       },
-    });
+    }));
   }
 
   ngOnDestroy() {

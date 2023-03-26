@@ -110,6 +110,8 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   setDeleteUser() {
     document.getElementById("delete-board").hidden = true;
     document.getElementById("delete-profile").hidden = false;
+    document.getElementById("delete-column").hidden = true;
+    document.getElementById("delete-task").hidden = true;
   }
 
   onDelete(event) {

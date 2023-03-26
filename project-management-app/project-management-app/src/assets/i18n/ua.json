@@ -51,17 +51,21 @@
         "description-length": "Опис повинен складатися не менше ніж з 3 символів",
         "btn-close": "Закрити",
         "btn-submit": "Створити",
-        "search": "Пошук",
         "btn-cancel": "Скасувати",
         "btn-ok": "Так",
         "title-delete-board": "Видалити дошку",
         "message-delete-board": "Ви впевнені, що хочете видалити дошку?",
         "title-delete-user": "Видалити аккаунт",
         "message-delete-user": "Ви впевнені, що хочете видалити свій аккаунт?",
+        "title-delete-column": "Видалити стовпець",
+        "message-delete-column": "Ви впевнені, що хочете видалити стовпець?",
+        "title-delete-task": "Видалити завдання",
+        "message-delete-task": "Ви впевнені, що хочете видалити завдання?",
         "accept-btn": "Прийняти зміни",
         "edit-error": "Редагування не вдалося!",
         "edit-success": "Редагування успішне!",
-        "delete-profile": "Видалити аккаунт"
+        "delete-profile": "Видалити аккаунт",
+        "return-btn": "Повернутися"
     },
     "not-found": {
         "title": "Не знайдено",
@@ -73,7 +77,8 @@
         "board-new": "Створити дошку"
     },
     "board": {
-        "add-task": "Додати завдання +",
-        "add-column": "Додати стовпець +"
+        "add-task": "Додати завдання",
+        "add-column": "Додати стовпець",
+        "column-title-length": "Заголовок повинен складатися не менше ніж з 3-20 символів"
     }
 }

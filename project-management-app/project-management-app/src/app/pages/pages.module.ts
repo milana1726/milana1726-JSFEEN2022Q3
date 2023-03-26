@@ -19,12 +19,14 @@ import { SharedModule } from '../shared/shared.module';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { BoardComponent } from './components/board/board.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ColumnComponent } from './components/board/components/column/column.component';
+import { TaskComponent } from './components/board/components/task/task.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent, canActivate: [GuestGuard], },
   { path: 'main', component: MainpageComponent, canActivate: [AuthGuard] },
   { path: 'edit-profile', component: EditProfileComponent, canActivate: [AuthGuard] },
-  { path: 'board', component: BoardComponent, canActivate: [AuthGuard] },
+  { path: 'boards/:id', component: BoardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -36,11 +38,14 @@ const routes: Routes = [
         SearchBarComponent,
         EditProfileComponent,
         BoardComponent,
+        ColumnComponent,
+        TaskComponent
     ],
     exports: [
         WelcomepageComponent,
         MainpageComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        BoardComponent,
     ],
     imports: [
         CommonModule,
