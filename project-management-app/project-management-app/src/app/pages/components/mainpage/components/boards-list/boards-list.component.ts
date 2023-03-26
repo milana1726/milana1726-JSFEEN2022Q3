@@ -1,8 +1,8 @@
 import { Component,  OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Keys } from 'src/app/shared/models/enums/key-enum';
 import { Board, CreateBoardEvent } from 'src/app/shared/models/interfaces/board-interface';
-import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 import { MainpageService } from 'src/app/shared/services/mainpage/mainpage.service';
 import { StorageService } from 'src/app/shared/services/storage/storage.service';
 
@@ -21,7 +21,7 @@ export class BoardsListComponent implements OnInit, OnDestroy {
   constructor(
     private mainpageService: MainpageService,
     private storageSernice: StorageService,
-    private dialogService: DialogService) {}
+    public router: Router) {}
 
   ngOnInit() {
     this.mainpageService.getAllBoard();
@@ -33,7 +33,8 @@ export class BoardsListComponent implements OnInit, OnDestroy {
   }
 
   saveBoardId(id: string) {
-    this.storageSernice.saveInStorage(Keys.BOARD_ID, id);
+      this.storageSernice.saveInStorage(Keys.BOARD_ID, id);
+      this.router.navigate(['/boards', id])
   }
 
   createNewBoard(event: CreateBoardEvent) {

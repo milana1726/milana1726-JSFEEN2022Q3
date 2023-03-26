@@ -55,6 +55,10 @@ header {
 
         .signin-btn,
         .create-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
             padding: 6px 12px;
             height: 40px;
             background-color: #fff;
@@ -80,7 +84,10 @@ header {
         .signup-btn,
         .edit-btn,
         .signout-btn {
-            display: inline-block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
             padding: 6px 12px;
             height: 40px;
             background-color: #6432ac;

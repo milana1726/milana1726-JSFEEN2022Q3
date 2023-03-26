@@ -40,24 +40,61 @@
                 }
             }
 
-            .edit-btn {
+            .edit-user-btn {
                 width: 100%;
                 margin-top: 0.5rem;
                 height: 2.5rem;
                 font-size: 1rem;
             }
 
-            .edit-btn:not([disabled]) {
+            .edit-user-btn:not([disabled]) {
                 background-color: #2583a8;
                 color: #fff;
+
+                &:hover {
+                    background-color: #925ae0;
+                }
             }
 
-            .delete-btn {
-                background-color: red;
-                color: #fff;
-                margin-top: 0.5rem;
-                height: 2.5rem;
-                font-size: 1rem;
+            .bottom-btns {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .return-btn {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 0.5rem;
+                    height: 2.5rem;
+                    font-size: 1rem;
+                    background-color: #fff;
+                    border: 2px solid transparent;
+                    border-radius: 0.25rem;
+                    border-color: #2181a7;
+                    color: #2181a7;
+
+                    &:hover {
+                        color: #fff;
+                        background-color: #2583a8;
+                        border-color: #2583a8;
+                    }
+                }
+
+                .delete-btn {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: red;
+                    color: #fff;
+                    margin-top: 0.5rem;
+                    height: 2.5rem;
+                    font-size: 1rem;
+
+                    &:hover {
+                        background-color: #925ae0;
+                    }
+                }
             }
 
             .alert {

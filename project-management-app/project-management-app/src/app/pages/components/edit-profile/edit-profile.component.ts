@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Keys } from 'src/app/shared/models/enums/key-enum';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 import { StorageService } from 'src/app/shared/services/storage/storage.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-edit-profile',
@@ -40,16 +40,15 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
   userDataForm = {
     name: '',
-    login: '',
-    password: '',
+    login: ''
   };
 
   constructor(
     private userService: UserService,
-    private dialogService: DialogService,
     private router: Router,
     private authService: AuthService,
-    private storageService: StorageService) {}
+    private storageService: StorageService,
+    private location: Location) {}
 
   ngOnInit(): void {
     this.subscription = this.userService.getCurrentUser().subscribe((data)=> {
@@ -91,7 +90,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
         this.errorMessage = err.error.message;
         this.isEditFailed = true;
      },
-    })
+    });
     this.exitAlert();
   }
 
@@ -100,7 +99,12 @@ export class EditProfileComponent implements OnInit, OnDestroy {
       this.isSuccessful = false;
       this.isEditFailed = false;
       this.errorMessage = '';
-    }, 2000)
+      this.editForm.get('password').setValue('');
+    }, 2000);
+  }
+
+  onReturn() {
+    this.location.back();
   }
 
   setDeleteUser() {

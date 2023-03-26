@@ -29,10 +29,22 @@
         .btn-ok:not([disabled]) {
             background-color: #2583a8;
             color: #fff;
+
+            &:hover {
+                background-color: #925ae0;
+            }
         }
 
         .btn-cancel {
+            color: #2583a8;
+            background-color: #fff;
             border: 2px solid #2583a8;
+
+            &:hover {
+                color: #fff;
+                background-color: #2583a8;
+                border-color: #2583a8;
+            }
         }
     }
 }

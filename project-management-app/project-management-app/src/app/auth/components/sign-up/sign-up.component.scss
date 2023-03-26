@@ -33,6 +33,10 @@
         .login-btn:not([disabled]) {
             background-color: #2583a8;
             color: #fff;
+
+            &:hover {
+                background-color: #925ae0;
+            }
         }
 
         .alert {
