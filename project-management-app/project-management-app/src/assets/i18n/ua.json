@@ -80,5 +80,11 @@
         "add-task": "Додати завдання",
         "add-column": "Додати стовпець",
         "column-title-length": "Заголовок повинен складатися не менше ніж з 3-20 символів"
+    },
+    "info": {
+        "name-author": "Про автора",
+        "about-author": "Привіт, мене звати Людмила. Я студентка онлайн-курсу “Javascript/Front-end Mentoring Program (англійською мовою)” у школі Rolling Scopes School. Мені подобається навчатися та розвивати нові навички, які дозволять мені працювати фронтенд-розробником.",
+        "name-course": "“Javascript/Front-end Mentoring Program (англійською мовою)”",
+        "about-course": "The program consists of 3 stages. There may be requirements for advancing to each higher stage, which will be described below. This specific run of the program will take the form of self-study."
     }
 }

@@ -104,6 +104,9 @@
             "scripts": [],
             "preserveSymlinks": true
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

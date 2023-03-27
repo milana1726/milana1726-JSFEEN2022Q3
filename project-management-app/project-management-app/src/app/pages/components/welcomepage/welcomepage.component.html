@@ -2,7 +2,7 @@
     <div class="welcomepage-wrapper">
         <section class="about-block">
         <div class="about-block-left">
-            <h1>{{ t('welcomepage.subtitle-1') }}</h1>
+            <h1>{{ t('welcomepage.subtitle-1') | uppercase }}</h1>
             <hr>
             <p>{{ t('welcomepage.pma-text') }}</p>
             <button class="start-btn" routerLink="/auth/signup">{{ t('welcomepage.start-btn') }}</button>
@@ -16,7 +16,7 @@
                 <img src="../../../../assets/images/plan-image.jpg" alt="plan-image">
             </div>
             <div class="works-block-right">
-                <h2>{{ t('welcomepage.subtitle-2') }}</h2>
+                <h2>{{ t('welcomepage.subtitle-2') | uppercase }}</h2>
                 <hr>
                 <div class="works-arrow-block">
                     <p>{{ t('welcomepage.pma-works.text-1') }}</p>
@@ -25,6 +25,21 @@
                     <img src="../../../../assets/images/arrow1.png" alt="arrow-image">
                     <p>{{ t('welcomepage.pma-works.text-3') }}</p>
                 </div>
+            </div>
+        </section>
+        <section class="info-block">
+            <div class="info-block-left">
+                <div class="author-logo">
+                    <img src="../../../../assets/images/author.jpg" alt="author-image">
+                    <h2>{{ t('info.name-author') | uppercase }}</h2>
+                </div>
+                <hr>
+                <p>{{ t('info.about-author') }}</p>
+            </div>
+            <div class="info-block-right">
+                <h2>{{ t('info.name-course') | uppercase }}</h2>
+                <hr>
+                <p>{{ t('info.about-course') }}</p>
             </div>
         </section>
     </div>

@@ -81,5 +81,11 @@
     "add-task": "Add task",
     "add-column": "Create column",
     "column-title-length": "Title should be at least 3-20 characters"
+  },
+  "info": {
+    "name-author": "About author",
+    "about-author": "Hi, my name is Liudmyla. I'm a student of the online course “Javascript/Front-end Mentoring Program (in English)” at the Rolling Scopes School. I like to learn and develop new skills that would allow me to work as a front-end developer.",
+    "name-course": "“Javascript/Front-end Mentoring Program (in English)”",
+    "about-course": "The program consists of 3 stages. There may be requirements for advancing to each higher stage. This specific run of the program takes the form of self-study."
   }
 }

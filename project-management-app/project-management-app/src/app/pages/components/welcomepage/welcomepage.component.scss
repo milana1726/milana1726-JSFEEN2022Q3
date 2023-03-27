@@ -23,7 +23,6 @@
 
                 h1 {
                     font-size: 1.5rem;
-                    text-transform: uppercase;
                 }
 
                 p {
@@ -84,7 +83,6 @@
 
                 h2 {
                     text-align: center;
-                    text-transform: uppercase;
                 }
 
                 .works-arrow-block {
@@ -107,6 +105,63 @@
                         height: 2.5rem;
                     }
                 }
+            }
+
+        }
+
+        .info-block {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            width: 80%;
+
+            .info-block-left {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .author-logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+
+                    img {
+                        width: 3rem;
+                        height: 3rem;
+                        border-radius: 50%;
+                        border: 1px solid #6432ac;
+                    }
+
+                    h2 {
+                        text-align: center;
+                        font-size: 1.5rem;
+                    }
+                }
+                p {
+                    font-size: 1.2rem;
+                    text-align: justify;
+                }
+            }
+
+            .info-block-right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                h2 {
+                    text-align: center;
+                    font-size: 1.5rem;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    text-align: justify;
+                }
+
             }
         }
     }
