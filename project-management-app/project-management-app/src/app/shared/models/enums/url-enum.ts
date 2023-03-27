@@ -1,5 +1,6 @@
 export enum UrlEnum {
-  baseURL = 'http://localhost:3000/',
+  // baseURL = 'http://localhost:3000/',
+  baseURL = 'https://backend-mongodb-production.up.railway.app/',
   signIn = 'auth/signin',
   signUp = 'auth/signup',
   users = 'users',
