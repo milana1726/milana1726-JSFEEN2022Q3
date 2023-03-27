@@ -1,1 +1,18 @@
-<p>task works!</p>
+<li class="list-item">
+    <div class="list-top">
+        <div class="list-body">
+            <h3 class="list-title">{{ task.title }}</h3>
+            <app-modal (click)="setTwoFields()">
+                <button mat-icon-button class="list-btn">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </app-modal>
+            <app-confirm (emitConfirm)="deleteTask($event, task._id)" appStopPropagation (click)="setDeleteTask()">
+                <button mat-icon-button class="list-btn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </app-confirm>
+        </div>
+        <p class="list-description">{{ task.description }}</p>
+    </div>
+</li>

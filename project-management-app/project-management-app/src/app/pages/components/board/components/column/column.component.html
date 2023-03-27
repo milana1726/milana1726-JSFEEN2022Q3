@@ -1,9 +1,7 @@
-<div class="container-column" *ngIf="(columns$ | async) as columns">
-    <div class="column" *ngFor="let column of columns | search: searchText" appStopPropagation (click)="saveColumndId(column._id)">
-
+    <div class="column" appStopPropagation (click)="saveColumndId(column._id)">
         <div class="title-container">
             <div class="columnt-title">
-                <h3 class="title">{{ column.title }}</h3>
+                <h4 class="title">{{ column.title }}</h4>
             </div>
             <app-confirm (emitConfirm)="deleteColumn($event, column._id)" appStopPropagation (click)="setDeleteColumn()">
                 <button mat-icon-button class="delete-column-btn">
@@ -12,19 +10,16 @@
             </app-confirm>
         </div>
         <hr class="column-line">
-        <app-modal *transloco="let t" (click)="setTwoFields()">
+        <app-modal *transloco="let t" (emitText)="createTask($event, column._id)" (click)="setTwoFields()">
             <button mat-flat-button class="add-task-btn"
                 type="button"
                 color="primary"
             ><mat-icon>add_to_photos</mat-icon> {{ t('board.add-task') }}
             </button>
         </app-modal>
-        <div class="task-container">
 
-        </div>
-        <!-- <app-edit-task *ngIf="isShow$ | async"></app-edit-task> -->
-            <!-- <app-item-board [item]="item" (emitEditTask)="editTask($event, column.id)"
-                (emitDeleteTask)="onDeleteTask($event, column.id)"></app-item-board> -->
+        <ul class="task-container">
+            <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+        </ul>
     </div>
-</div>
 

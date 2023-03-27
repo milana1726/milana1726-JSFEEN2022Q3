@@ -8,12 +8,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DialogModule } from '../dialog/dialog.module';
 import { SearchPipe } from './pipes/search.pipe';
 import {MatIconModule} from '@angular/material/icon';
+import { StopPropagationDirective } from './directives/stop-propagation.directive';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         FooterComponent,
-        SearchPipe
+        SearchPipe,
+        StopPropagationDirective
     ],
     exports: [
         HeaderComponent,

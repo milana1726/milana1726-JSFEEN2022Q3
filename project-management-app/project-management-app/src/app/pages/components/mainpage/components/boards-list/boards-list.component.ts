@@ -32,9 +32,14 @@ export class BoardsListComponent implements OnInit, OnDestroy {
     );
   }
 
-  saveBoardId(id: string) {
+  enterBoard(id: string, title: string) {
+    this.saveBoardInfo(id, title);
+    this.router.navigate(['/boards', id]);
+  }
+
+  saveBoardInfo(id: string, title: string) {
       this.storageSernice.saveInStorage(Keys.BOARD_ID, id);
-      // this.router.navigate(['/boards', id])
+      this.storageSernice.saveInStorage(Keys.BOARD_TITLE, title);
   }
 
   createNewBoard(event: CreateBoardEvent) {

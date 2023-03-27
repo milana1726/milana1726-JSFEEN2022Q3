@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Keys } from 'src/app/shared/models/enums/key-enum';
-import { Column } from 'src/app/shared/models/interfaces/board-interface';
+import { Column, CreateTaskEvent, Task } from 'src/app/shared/models/interfaces/board-interface';
 import { BoardpageService } from 'src/app/shared/services/boardpage/boardpage.service';
 import { MainpageService } from 'src/app/shared/services/mainpage/mainpage.service';
 import { StorageService } from 'src/app/shared/services/storage/storage.service';
@@ -11,14 +11,16 @@ import { StorageService } from 'src/app/shared/services/storage/storage.service'
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })
-export class ColumnComponent implements OnInit {
+export class ColumnComponent implements OnInit, OnDestroy {
 
-  columns$: Observable<Column[]> = this.boardpageService.getAllColumns$();
-  column: Column[] = [];
+  tasks: Task[];
+  @Input() columnId: string;
+  @Input() column: Column;
+
   private subscription: Subscription[] = [];
+
   searchText: string;
   isEditEnable: boolean;
-  titleColumn = '';
 
   constructor(
     private boardpageService: BoardpageService,
@@ -26,12 +28,17 @@ export class ColumnComponent implements OnInit {
     private storageService: StorageService) {}
 
   ngOnInit() {
-    this.boardpageService.getAllColumn();
+    this.boardpageService.getAllTasksColumn(this.columnId);
 
     this.subscription.push(
       this.mainpageService.searchItem.subscribe(
         (data) => (this.searchText = data))
     );
+    this.subscription.push(this.boardpageService.allTasks$.subscribe((data) => {
+      if (data.columnId === this.columnId) {
+         this.tasks = data.tasks;
+      }
+    }));
   }
 
   saveColumndId(id: string) {
@@ -48,19 +55,21 @@ export class ColumnComponent implements OnInit {
     }
   }
 
-  onExit() {
-
-  }
-
-  onEdit(){
-    this.isEditEnable =!this.isEditEnable;
-}
-
   setDeleteColumn() {
     document.getElementById("delete-board").hidden = true;
     document.getElementById("delete-profile").hidden = true;
     document.getElementById("delete-column").hidden = false;
     document.getElementById("delete-task").hidden = true;
+  }
+
+  createTask(event: CreateTaskEvent, idColumn: string) {
+    if (event) {
+      this.boardpageService.createTask(event, idColumn);
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach((subs) => subs.unsubscribe());
   }
 
 }

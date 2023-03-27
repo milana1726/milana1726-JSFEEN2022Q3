@@ -1,6 +1,6 @@
 <section class="boardpage-wrapper" *transloco="let t">
     <div class="boardpage-title">
-      <h2 class="board-title">Title</h2>
+      <h2 class="board-title"> {{ boardpageService.getBoardTitle() }}</h2>
       <app-search-bar></app-search-bar>
     </div>
     <div class="create-container">
@@ -19,5 +19,7 @@
         </app-modal>
     </div>
     <hr class="board-line">
-    <app-column></app-column>
+    <div class="row-container-tasks">
+        <app-column *ngFor="let column of (columns$ | async)" [column]="column" [columnId]="column._id"></app-column>
+    </div>
 </section>

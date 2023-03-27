@@ -1,13 +1,14 @@
 .board-list {
     .list-wrapper {
-      list-style-type: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      column-gap: 2rem;
-      row-gap: 2rem;
-      width: 100%;
-      margin: 0 auto 1rem;
+        padding: 1rem 4rem;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        column-gap: 2rem;
+        row-gap: 2rem;
+        width: 100%;
+        margin: 0 auto 1rem;
 
         .list-item {
             width: 20rem;
@@ -80,6 +81,10 @@
                     width: 40px;
                 }
             }
+        }
+
+        .to-tasks-btn {
+            margin-left: 16.5rem;
         }
 
     }
