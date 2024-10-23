@@ -1,0 +1,58 @@
+<div class="container">
+    <form [formGroup]="signInForm" *transloco="let t">
+        <mat-form-field appearance="fill">
+            <mat-label>{{ t('forms.login-placeh') }}</mat-label>
+            <input
+                matInput #inputLogin
+                type="text"
+                [placeholder]="t('forms.login-placeh')"
+                formControlName="login"
+                maxlength="20"
+            />
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputLogin.value.length}}/20</mat-hint>
+            <mat-error class="hint" *ngIf="login?.invalid">
+                <span *ngIf="login?.errors?.['required']">{{ t('forms.login-req') }}</span>
+                <span *ngIf="login?.errors?.['minlength']">{{ t('forms.login-length') }}</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{ t('forms.pass-placeh') }}</mat-label>
+            <input matInput #inputPass
+                [type]="hide ? 'password' : 'text'"
+                type="password"
+                [placeholder]="t('forms.pass-placeh')"
+                formControlName="password"
+                maxlength="20"
+            />
+            <button class="icon-btn"
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+            >
+                <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputPass.value.length}}/20</mat-hint>
+            <mat-error class="error" *ngIf="password?.invalid">
+                <span *ngIf="password?.errors?.['required']">{{ t('forms.pass-req') }}</span>
+                <span *ngIf="password?.errors?.['minlength']">{{ t('forms.pass-length') }}</span>
+            </mat-error>
+        </mat-form-field>
+        <button mat-flat-button class="login-btn" *ngIf="!isSuccessful && !isSignInFailed"
+            [disabled]="!signInForm.valid"
+            type="submit"
+            (click)="onSubmit()"
+            color="primary"
+        >
+            {{ t("signin") }}
+        </button>
+        <div class="alert alert-danger" *ngIf="signInForm.valid && isSignInFailed">
+            {{ t('forms.signin-error') }}<br/>{{ errorMessage }}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="isSuccessful">
+            {{ t('forms.signin-success') }}
+        </div>
+    </form>
+</div>

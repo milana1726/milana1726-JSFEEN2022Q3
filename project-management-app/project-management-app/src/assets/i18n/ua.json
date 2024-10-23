@@ -1,0 +1,90 @@
+{
+    "signin": "Увійти",
+    "signup": "Зареєструватися",
+    "signout": "Вийти",
+    "edit-profile": "Редагувати профіль",
+    "welcomepage": {
+        "start-btn": "Почати",
+        "subtitle-1": "Система управління проектами (СУП)",
+        "subtitle-2": "Як це працює?",
+        "subtitle-3": "Автор:",
+        "pma-text": "Програмне забезпечення для управління проектами призначене для планування та документування, управління та контролю проектних завдань і заходів, списків справ і розкладів.",
+        "pma-works": {
+            "text-1": "Створіть дошки",
+            "text-2": "Створіть колонки",
+            "text-3": "Створіть завдання"
+        },
+        "about-author": "Привіт! Мене звуть Людмила. Я студентка онлайн курсу “Javascript/Front-end Mentoring Program (in English)” в Rolling Scopes School. СУП є завершальним завданням курсу."
+    },
+    "footer": {
+        "author": "Людмила Мельничук",
+        "date": "Березень 2023"
+    },
+    "auth": {
+        "name": "Ім'я",
+        "login": "Логін",
+        "password": "Пароль"
+    },
+    "forms": {
+        "signup-error": "Реєстрація не вдалася!",
+        "signup-success": "Ваша реєстрація пройшла успішно!",
+        "signin-error": "Помилка входу!",
+        "signin-success": "Вхід успішний!",
+        "max": "Максимум символів",
+        "login-req": "Логін є обов'язковим",
+        "pass-req": "Пароль є обов'язковим",
+        "name-req": "Ім'я є обов'язковим",
+        "login-placeh": "Введіть логін",
+        "pass-placeh": "Введіть пароль",
+        "name-placeh": "Введіть ім'я",
+        "login-length": "Логін повинен складатися не менше ніж з 3 символів",
+        "pass-length": "Пароль повинен складатися не менше ніж з 6 символів",
+        "name-length": "Ім'я повинно складатися не менше ніж з 3 символів",
+        "enter-data": "Введіть дані",
+        "title": "Заголовок",
+        "title-req": "Заголовок є обов'язковим",
+        "title-placeh": "Введіть заголовок",
+        "title-length": "Заголовок повинен складатися не менше ніж з 3 символів",
+        "description": "Опис",
+        "description-req": "Опис є обов'язковим",
+        "description-placeh": "Введіть опис",
+        "description-length": "Опис повинен складатися не менше ніж з 3 символів",
+        "btn-close": "Закрити",
+        "btn-submit": "Створити",
+        "btn-cancel": "Скасувати",
+        "btn-ok": "Так",
+        "title-delete-board": "Видалити дошку",
+        "message-delete-board": "Ви впевнені, що хочете видалити дошку?",
+        "title-delete-user": "Видалити аккаунт",
+        "message-delete-user": "Ви впевнені, що хочете видалити свій аккаунт?",
+        "title-delete-column": "Видалити стовпець",
+        "message-delete-column": "Ви впевнені, що хочете видалити стовпець?",
+        "title-delete-task": "Видалити завдання",
+        "message-delete-task": "Ви впевнені, що хочете видалити завдання?",
+        "accept-btn": "Прийняти зміни",
+        "edit-error": "Редагування не вдалося!",
+        "edit-success": "Редагування успішне!",
+        "delete-profile": "Видалити аккаунт",
+        "return-btn": "Повернутися"
+    },
+    "not-found": {
+        "title": "Не знайдено",
+        "text": "Сторінка, яку ви шукаєте, не існує або сталася інша помилка"
+    },
+    "main": {
+        "title": "Проекти",
+        "search-bar": "Пошук",
+        "board-new": "Створити дошку"
+    },
+    "board": {
+        "add-task": "Додати завдання",
+        "add-column": "Додати стовпець",
+        "column-title-length": "Заголовок повинен складатися не менше ніж з 3-20 символів"
+    },
+    "info": {
+        "name-author": "Про автора",
+        "about-author": "Привіт, мене звати Людмила. Я студентка онлайн-курсу “Javascript/Front-end Mentoring Program (англійською мовою)” у школі Rolling Scopes School. Мені подобається навчатися та розвивати нові навички, які дозволять мені працювати фронтенд-розробником.",
+        "name-course": "“Javascript/Front-end Mentoring Program (англійською мовою)”",
+        "about-course": "The program consists of 3 stages. There may be requirements for advancing to each higher stage, which will be described below. This specific run of the program will take the form of self-study."
+    }
+}

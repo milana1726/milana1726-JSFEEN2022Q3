@@ -1,0 +1,13 @@
+<section class="mainpage" *transloco="let t">
+    <div class="mainpage-wrapper">
+      <div class="main-container">
+        <div class="main-item">
+          <h2 class="main-title">{{ t('main.title') | uppercase }} </h2>
+        </div>
+        <app-search-bar class="main-search"></app-search-bar>
+      </div>
+      <div class="main-list">
+        <app-boards-list></app-boards-list>
+      </div>
+    </div>
+</section>

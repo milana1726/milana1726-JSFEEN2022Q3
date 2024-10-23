@@ -1,0 +1,68 @@
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    align-items: center;
+    background: transparent;
+    overflow-y: auto;
+    max-height: 70vh;
+
+
+    .title-container {
+        width: 100%;
+        display: flex;
+        padding: 0 1rem;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+
+        .column-title {
+            width: 100%;
+            cursor: pointer;
+
+            .title {
+                margin: 0;
+            }
+        }
+    }
+
+    .column-line {
+        width: 100%;
+        height: 5px;
+        margin: 2px 0;
+        background-color: #3f3f3f;
+    }
+
+    .add-task-btn {
+        min-width: 19rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 0.25rem;
+        border-color: #2181a7;
+        color: #2181a7;
+
+        &:hover {
+            color: #fff;
+            background-color: #2583a8;
+            border-color: #2583a8;
+        }
+    }
+
+    .task-container {
+        width: 19rem;
+        border: 1px solid #3f3f3f;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+}

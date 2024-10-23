@@ -1,0 +1,45 @@
+<header>
+    <div class="header-wrapper" >
+        <div class="header-left">
+            <img class="logo" src="../../../../assets/images/pma-logo.png" alt="PMA-logo" routerLink="">
+            <mat-button-toggle-group class="lang-selector" name="lang-selector" aria-label="lang-selector">
+                <mat-button-toggle
+                    class="lang-btn"
+                    value="en"
+                    checked
+                    (click)="changeLang('en')"
+                >En</mat-button-toggle>
+                <mat-button-toggle
+                    class="lang-btn"
+                    value="ua"
+                    (click)="changeLang('ua')"
+                >Ua</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+
+        <div class="header-right" *transloco="let t">
+            <button class="signin-btn" routerLink="/auth/signin" *ngIf="!authService.isSignedIn()">
+                <mat-icon>launch</mat-icon> {{ t('signin') }}
+            </button>
+            <button class="signup-btn" routerLink="/auth/signup" *ngIf="!authService.isSignedIn()">
+                <mat-icon>person_add</mat-icon> {{ t('signup') }}
+            </button>
+            <div class="user-profile" *ngIf="authService.isSignedIn()">
+                <a href="#" class="user-name" id="user-name">
+                    <img class="logo" src="../../../../assets/icons/user-icon.png" alt="user-photo">
+                {{ userService.getUserLogin() }}</a>
+                <app-modal (emitText)="createNewBoard($event)">
+                    <button class="create-btn" routerLink="/main">
+                        <mat-icon>add_to_photos</mat-icon> {{ t('main.board-new') }}
+                    </button>
+                </app-modal>
+                <button class="edit-btn" routerLink="/edit-profile">
+                    <mat-icon>edit</mat-icon> {{ t('edit-profile') }}
+                </button>
+                <button class="signout-btn" routerLink="/" (click)="onSignOut()">
+                    <mat-icon>exit_to_app</mat-icon> {{ t('signout') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

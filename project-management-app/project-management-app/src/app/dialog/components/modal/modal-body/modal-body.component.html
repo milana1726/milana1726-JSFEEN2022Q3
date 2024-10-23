@@ -1,0 +1,45 @@
+<div class="modal-container" *transloco="let t">
+    <h2 mat-dialog-title>{{t('forms.enter-data')}}</h2>
+    <mat-dialog-content>
+        <form [formGroup]="createForm">
+            <mat-form-field appearance="fill">
+                <mat-label>{{ t('forms.title-placeh') }}</mat-label>
+                <input
+                    matInput #inputTitle
+                    [placeholder]="t('forms.title-placeh')"
+                    formControlName="title"
+                    maxlength="20"
+                />
+                <mat-hint align="start" class="hint">{{ t('forms.max') }} {{inputTitle.value.length}}/20</mat-hint>
+                <mat-error class="hint" *ngIf="title?.invalid">
+                    <span *ngIf="title?.errors?.['required']">{{ t('forms.title-req') }}</span>
+                    <span *ngIf="title?.errors?.['minlength']">{{ t('forms.title-length') }}</span>
+                </mat-error>
+            </mat-form-field>
+            <div id="textarea-desc" hidden="true">
+                <mat-form-field>
+                    <textarea
+                        matInput #description
+                        [placeholder]="t('forms.description')"
+                        formControlName="description"
+                        maxlength="60"
+                    ></textarea>
+                    <mat-hint align="start" class="hint">{{ t('forms.max') }} {{description.value.length}}/20</mat-hint>
+                    <mat-error class="hint" *ngIf="createForm.value.description">{{ t('forms.description-length') }}</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <div class="dialog-btns">
+            <button class="btn-submit"
+                mat-flat-button
+                color="primary"
+                [disabled]="!createForm.valid"
+                type="submit"
+                (click)="createForm.valid && onSubmit(createForm.value)">{{ t('forms.btn-submit') }}
+            </button>
+            <button class="btn-close" mat-flat-button [mat-dialog-close]="false">{{ t('forms.btn-close') }}</button>
+        </div>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,10 @@
+<div class="auth-wrapper" *transloco="let t">
+    <mat-tab-group class="group-container" mat-align-tabs="center" animationDuration="0ms" [selectedIndex] = "index" (selectedTabChange)="onTabChanged($event)">
+        <mat-tab [label]="t('signin')">
+            <app-sign-in></app-sign-in>
+        </mat-tab>
+        <mat-tab [label]="t('signup')">
+            <app-sign-up></app-sign-up>
+        </mat-tab>
+    </mat-tab-group>
+</div>

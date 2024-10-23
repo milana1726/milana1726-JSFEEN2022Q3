@@ -1,0 +1,25 @@
+    <div class="column" appStopPropagation (click)="saveColumndId(column._id)">
+        <div class="title-container">
+            <div class="columnt-title">
+                <h4 class="title">{{ column.title }}</h4>
+            </div>
+            <app-confirm (emitConfirm)="deleteColumn($event, column._id)" appStopPropagation (click)="setDeleteColumn()">
+                <button mat-icon-button class="delete-column-btn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </app-confirm>
+        </div>
+        <hr class="column-line">
+        <app-modal *transloco="let t" (emitText)="createTask($event, column._id)" (click)="setTwoFields()">
+            <button mat-flat-button class="add-task-btn"
+                type="button"
+                color="primary"
+            ><mat-icon>add_to_photos</mat-icon> {{ t('board.add-task') }}
+            </button>
+        </app-modal>
+
+        <ul class="task-container">
+            <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+        </ul>
+    </div>
+

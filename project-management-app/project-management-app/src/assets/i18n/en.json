@@ -1,0 +1,91 @@
+{
+  "signin": "Log In",
+  "signup": "Sign Up",
+  "signout": "Sign Out",
+  "edit-profile": "Edit profile",
+  "welcomepage": {
+    "start-btn": "Get started",
+    "subtitle-1": "Project Managment Application (PMA)",
+    "subtitle-2": "How does it work?",
+    "subtitle-3": "Created by:",
+    "pma-text": "Project management application software is designed to plan and document, manage and control project tasks and activities, to-do lists and schedules.",
+    "pma-works": {
+      "text-1": "Create boards",
+      "text-2": "Create columns",
+      "text-3": "Create tasks"
+    },
+    "about-author": "Hi! My name is Liudmyla. I'm a student of the online course “Javascript/Front-end Mentoring Program (in English)” at the Rolling Scopes School. This webproject is the final task of the course."
+  },
+  "footer": {
+    "author": "Liudmyla Melnychuk",
+    "date": "March 2023"
+  },
+  "auth": {
+    "name": "Name",
+    "login": "Login",
+    "password": "Password"
+  },
+  "forms": {
+    "signup-error": "Sign Up failed!",
+    "signup-success": "Your registration is successful!",
+    "signin-error": "Login failed!",
+    "signin-success": "Login is successful!",
+    "max": "Max characters",
+    "login-req": "Login is required",
+    "pass-req": "Password is required",
+    "name-req": "Name is required",
+    "login-placeh": "Enter a login",
+    "pass-placeh": "Enter a password",
+    "name-placeh": "Enter a name",
+    "login-length": "Login should be at least 3 characters",
+    "pass-length": "Password should be at least 6 characters",
+    "name-length": "Name should be at least 3 characters",
+    "enter-data": "Enter data",
+    "title": "Title",
+    "title-req": "Title is required",
+    "title-placeh": "Enter a title",
+    "title-length": "Title should be at least 3 characters",
+    "description": "Description",
+    "description-req": "Description is required",
+    "description-placeh": "Enter a description",
+    "description-length": "Description should be at least 3 characters",
+    "btn-close": "Close",
+    "btn-submit": "Submit",
+    "btn-cancel": "Cancel",
+    "btn-ok": "Ok",
+    "title-delete-board": "Delete board",
+    "message-delete-board": "Are you shure you want to delete the board?",
+    "title-delete-user": "Delete account",
+    "message-delete-user": "Are you shure you want to delete your account?",
+    "title-delete-column": "Delete column",
+    "message-delete-column": "Are you shure you want to delete the column?",
+    "title-delete-task": "Delete task",
+    "message-delete-task": "Are you shure you want to delete the task?",
+
+    "accept-btn": "Accept changes",
+    "edit-error": "Editing failed!",
+    "edit-success": "Editing is successful!",
+    "delete-profile": "Delete an account",
+    "return-btn": "Return"
+  },
+  "not-found": {
+    "title": "Not Found",
+    "text": "The page you are looking for doesn't exist or an other error occured"
+  },
+  "main": {
+    "title": "Projects",
+    "search-bar": "Search",
+    "board-new": "Create board"
+  },
+  "board": {
+    "add-task": "Add task",
+    "add-column": "Create column",
+    "column-title-length": "Title should be at least 3-20 characters"
+  },
+  "info": {
+    "name-author": "About author",
+    "about-author": "Hi, my name is Liudmyla. I'm a student of the online course “Javascript/Front-end Mentoring Program (in English)” at the Rolling Scopes School. I like to learn and develop new skills that would allow me to work as a front-end developer.",
+    "name-course": "“Javascript/Front-end Mentoring Program (in English)”",
+    "about-course": "The program consists of 3 stages. There may be requirements for advancing to each higher stage. This specific run of the program takes the form of self-study."
+  }
+}

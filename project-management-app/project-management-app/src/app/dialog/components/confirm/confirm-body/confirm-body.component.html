@@ -1,0 +1,48 @@
+<div id="delete-board">
+    <div class="confirm-container" *transloco="let t">
+        <h2 mat-dialog-title>{{ t('forms.title-delete-board') }}</h2>
+        <div mat-dialog-content>{{ t('forms.message-delete-board') }}</div>
+        <div mat-dialog-actions>
+            <div class="confirm-btns">
+                <button class="btn-ok" mat-flat-button color="primary" [mat-dialog-close]="true">{{ t('forms.btn-ok') }}</button>
+                <button class="btn-cancel" mat-flat-button  [mat-dialog-close]="false">{{ t('forms.btn-cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete-profile" hidden="true">
+    <div class="confirm-container" *transloco="let t">
+        <h2 mat-dialog-title>{{ t('forms.title-delete-user') }}</h2>
+        <div mat-dialog-content>{{ t('forms.message-delete-user') }}</div>
+        <div mat-dialog-actions>
+            <div class="confirm-btns">
+                <button class="btn-ok" mat-flat-button color="primary" [mat-dialog-close]="true">{{ t('forms.btn-ok') }}</button>
+                <button class="btn-cancel" mat-flat-button  [mat-dialog-close]="false">{{ t('forms.btn-cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete-column" hidden="true">
+    <div class="confirm-container" *transloco="let t">
+        <h2 mat-dialog-title>{{ t('forms.title-delete-column') }}</h2>
+        <div mat-dialog-content>{{ t('forms.message-delete-column') }}</div>
+        <div mat-dialog-actions>
+            <div class="confirm-btns">
+                <button class="btn-ok" mat-flat-button color="primary" [mat-dialog-close]="true">{{ t('forms.btn-ok') }}</button>
+                <button class="btn-cancel" mat-flat-button  [mat-dialog-close]="false">{{ t('forms.btn-cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete-task" hidden="true">
+    <div class="confirm-container" *transloco="let t">
+        <h2 mat-dialog-title>{{ t('forms.title-delete-task') }}</h2>
+        <div mat-dialog-content>{{ t('forms.message-delete-task') }}</div>
+        <div mat-dialog-actions>
+            <div class="confirm-btns">
+                <button class="btn-ok" mat-flat-button color="primary" [mat-dialog-close]="true">{{ t('forms.btn-ok') }}</button>
+                <button class="btn-cancel" mat-flat-button  [mat-dialog-close]="false">{{ t('forms.btn-cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
